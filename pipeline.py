@@ -15,8 +15,8 @@ from bs4 import BeautifulSoup
 # 設定區（唯一需要填入的地方）
 # ============================================================
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-# gemini-2.0-flash-lite: 免費額度最大（每分鐘 30 次請求），速度最快
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent"
+# ✅ 已確認可用的模型（2026-07-15 測試通過）
+GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent"
 
 # ============================================================
 # 高價值主題選題庫（AI 策展的「黃金問題資料庫」）
