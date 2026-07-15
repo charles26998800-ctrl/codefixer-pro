@@ -384,7 +384,11 @@ def create_article_html(question_data, en_content, zh_content, date_str, slug):
   <footer class="footer">
     <div class="container footer-inner">
       <span class="logo">⚡ CodeFixer Pro</span>
-      <p>© {datetime.date.today().year} CodeFixer Pro. Built for developers worldwide.</p>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© {datetime.date.today().year} CodeFixer Pro. Built for developers worldwide.</p>
     </div>
   </footer>
 
@@ -467,7 +471,11 @@ def rebuild_index(articles_meta, site_dir):
   <footer class="footer">
     <div class="container footer-inner">
       <span class="logo">⚡ CodeFixer Pro</span>
-      <p>© {datetime.date.today().year} CodeFixer Pro. Built for developers worldwide.</p>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© {datetime.date.today().year} CodeFixer Pro. Built for developers worldwide.</p>
     </div>
   </footer>
 </body>
