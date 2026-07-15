@@ -15,8 +15,8 @@ from bs4 import BeautifulSoup
 # 設定區（唯一需要填入的地方）
 # ============================================================
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-# 使用 gemini-1.5-flash（免費額度最充足的模型）
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
+# gemini-2.0-flash-lite: 免費額度最大（每分鐘 30 次請求），速度最快
+GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent"
 
 # ============================================================
 # 高價值主題選題庫（AI 策展的「黃金問題資料庫」）
@@ -156,22 +156,37 @@ def scrape_top_question(topic):
 # ============================================================
 # 第二模組：AI 雙語寫手（Gemini 生成英文 + 中文文章）
 # ============================================================
-def call_gemini(prompt):
-    """呼叫 Gemini API 產生文章內容。"""
+def call_gemini(prompt, retries=3):
+    """呼叫 Gemini API，內建自動重試機制應對限速。"""
     if not GEMINI_API_KEY:
-        raise ValueError("❌ 缺少 GEMINI_API_KEY！請設定環境變數。")
+        raise ValueError("❌ 缺少 GEMINI_API_KEY！")
 
     payload = {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.75, "maxOutputTokens": 2048},
     }
-    resp = requests.post(
-        f"{GEMINI_API_URL}?key={GEMINI_API_KEY}",
-        json=payload,
-        timeout=60,
-    )
-    resp.raise_for_status()
-    return resp.json()["candidates"][0]["content"]["parts"][0]["text"]
+
+    for attempt in range(retries):
+        try:
+            resp = requests.post(
+                f"{GEMINI_API_URL}?key={GEMINI_API_KEY}",
+                json=payload,
+                timeout=60,
+            )
+            if resp.status_code == 429:
+                wait = 20 * (attempt + 1)  # 第1次等20秒，第2次等40秒
+                print(f"  ⏳ API 達到速率限制，等待 {wait} 秒後重試...")
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            return resp.json()["candidates"][0]["content"]["parts"][0]["text"]
+        except requests.exceptions.HTTPError as e:
+            if attempt < retries - 1:
+                print(f"  ⚠️  第 {attempt+1} 次請求失敗，重試中...")
+                time.sleep(10)
+            else:
+                raise
+    raise RuntimeError("Gemini API 多次重試後仍然失敗")
 
 
 def generate_article(question_data, lang="en"):
