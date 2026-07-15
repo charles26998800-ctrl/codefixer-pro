@@ -15,7 +15,8 @@ from bs4 import BeautifulSoup
 # 設定區（唯一需要填入的地方）
 # ============================================================
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+# 使用 gemini-1.5-flash（免費額度最充足的模型）
+GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
 
 # ============================================================
 # 高價值主題選題庫（AI 策展的「黃金問題資料庫」）
@@ -493,7 +494,10 @@ def run_daily_pipeline(site_dir="site", max_articles=2):
         article_html, en_title, zh_title = create_article_html(
             question, en_content, zh_content, today, slug
         )
-        article_path = os.path.join(site_dir, "articles", f"{slug}.html")
+        # 確保 articles 資料夾存在
+        articles_dir = os.path.join(site_dir, "articles")
+        os.makedirs(articles_dir, exist_ok=True)
+        article_path = os.path.join(articles_dir, f"{slug}.html")
         with open(article_path, "w", encoding="utf-8") as f:
             f.write(article_html)
         print(f"  💾 文章已儲存: articles/{slug}.html")
@@ -526,7 +530,18 @@ def run_daily_pipeline(site_dir="site", max_articles=2):
 
 
 if __name__ == "__main__":
+    # 自動偵測執行環境：GitHub Actions 在 repo 根目錄執行，本機在 site/ 子目錄外執行
+    import sys
+    # 如果當前目錄有 index.html，代表我們已在 site/ 資料夾（本機測試模式）
+    # 如果沒有，代表在 repo 根目錄（GitHub Actions 模式）
+    if os.path.exists("index.html"):
+        site_dir = "."  # 已在 site/ 目錄內
+    elif os.path.exists("site/index.html"):
+        site_dir = "site"  # 在 repo 根目錄，site/ 在子目錄
+    else:
+        site_dir = "."  # 預設當前目錄
+
     run_daily_pipeline(
-        site_dir="site",
+        site_dir=site_dir,
         max_articles=2  # 每天最多生成幾篇（可調整）
     )
