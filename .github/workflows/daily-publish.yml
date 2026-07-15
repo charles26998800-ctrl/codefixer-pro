@@ -1,0 +1,42 @@
+name: 🤖 每日自動發文引擎
+
+on:
+  # 每天台灣時間早上 9 點自動執行（UTC+8 = UTC 01:00）
+  schedule:
+    - cron: '0 1 * * *'
+  # 也可以手動在 GitHub 網站上按下觸發
+  workflow_dispatch:
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 允許機器人推送新文章
+
+    steps:
+      - name: 📥 下載最新網站程式碼
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🐍 設定 Python 環境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 📦 安裝相依套件
+        run: pip install requests beautifulsoup4
+
+      - name: ⚡ 執行全自動內容生成引擎
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python pipeline.py
+
+      - name: 🚀 推送新文章到網站
+        run: |
+          git config user.name "CodeFixer Bot 🤖"
+          git config user.email "bot@codefixer-pro.com"
+          git add -A
+          # 只在有新檔案時才 commit
+          git diff --staged --quiet || git commit -m "✨ 每日自動發文：$(date +'%Y-%m-%d')"
+          git push

@@ -17,9 +17,31 @@
   --radius:    14px;
   --radius-sm: 8px;
   --shadow:    0 4px 32px rgba(0,0,0,0.5);
-  --font-body: 'Noto Sans TC', sans-serif;
+  --font-body: 'Inter', 'Noto Sans TC', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
+
+/* 語言切換器 */
+.lang-switcher {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.lang-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 7px 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lang-btn:hover { border-color: var(--accent); color: var(--text); }
+.lang-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
 
 html { scroll-behavior: smooth; }
 
