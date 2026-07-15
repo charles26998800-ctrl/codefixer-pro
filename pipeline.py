@@ -67,47 +67,75 @@ CURATED_TOPICS = [
 ]
 
 # ============================================================
-# 第一模組：智能爬蟲（從 StackOverflow 抓取高分熱門問題）
+# 第一模組：智能選題引擎（使用 StackExchange 官方 API）
+# 官方 API 不會被封鎖，且提供更精準的排序與篩選
 # ============================================================
 def scrape_top_question(topic):
-    """抓取指定主題的高分、高瀏覽量問題。"""
+    """使用 StackExchange 官方 API 抓取高分、高瀏覽量的問題。"""
     tag = topic["tag"]
     print(f"  🔍 正在搜尋主題: {topic['label']} (tag: {tag})")
 
-    url = f"https://stackoverflow.com/questions/tagged/{tag}?tab=votes&pagesize=10"
-    headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/120.0.0.0 Safari/537.36"
-        ),
-        "Accept-Language": "en-US,en;q=0.9",
-    }
+    # 官方 API：按投票數排序，抓取最有價值的問題
+    # 加入 answers=1 確保問題已有解答，body 取得問題內文
+    url = (
+        f"https://api.stackexchange.com/2.3/questions"
+        f"?order=desc&sort=votes&tagged={tag}"
+        f"&site=stackoverflow&pagesize=20"
+        f"&filter=withbody"
+    )
 
     try:
-        resp = requests.get(url, headers=headers, timeout=15)
+        resp = requests.get(url, timeout=15)
         resp.raise_for_status()
-        soup = BeautifulSoup(resp.text, "html.parser")
+        data = resp.json()
 
-        # 找到第一個有 error/fail/issue/exception 的高分問題
-        for card in soup.select(".s-post-summary"):
-            title_el = card.select_one(".s-post-summary--content-title a")
-            excerpt_el = card.select_one(".s-post-summary--content-excerpt")
-            vote_el = card.select_one(".s-post-summary--stats-item-number")
+        if "items" not in data or not data["items"]:
+            print(f"  ⚠️  {topic['label']} API 沒有回傳資料，跳過。")
+            return None
 
-            if not title_el or not excerpt_el:
-                continue
+        # 從結果中篩選出帶有「錯誤感」的問題
+        keywords = ["error", "fail", "issue", "exception", "not work",
+                    "crash", "broken", "wrong", "undefined", "cannot",
+                    "can't", "doesn't", "won't", "warning", "fix"]
 
-            title = title_el.get_text(strip=True)
-            excerpt = excerpt_el.get_text(strip=True)
-            link = "https://stackoverflow.com" + title_el["href"].split("?")[0]
-            votes = vote_el.get_text(strip=True) if vote_el else "0"
+        for item in data["items"]:
+            title = item.get("title", "")
+            # 取問題摘要（移除 HTML 標籤）
+            body_html = item.get("body", "")
+            import re
+            body_text = re.sub(r"<[^>]+>", " ", body_html)
+            body_text = re.sub(r"\s+", " ", body_text).strip()
+            excerpt = body_text[:300]
 
-            # 挑選帶有「問題感」的標題
-            keywords = ["error", "fail", "issue", "exception", "not work",
-                        "crash", "broken", "wrong", "undefined", "cannot", "can't"]
-            if any(kw in title.lower() or kw in excerpt.lower() for kw in keywords):
-                print(f"  ✅ 找到問題: {title[:60]}... (票數: {votes})")
+            link = item.get("link", "")
+            votes = str(item.get("score", 0))
+            answer_count = item.get("answer_count", 0)
+
+            # 篩選：有解答 + 帶有問題關鍵字 + 票數 > 50（代表很多人踩過這個坑）
+            score = item.get("score", 0)
+            if (answer_count > 0 and score > 50 and
+                    any(kw in title.lower() for kw in keywords)):
+                print(f"  ✅ 找到問題: {title[:60]}... (票數: {votes}, 解答: {answer_count})")
+                return {
+                    "title": title,
+                    "description": excerpt,
+                    "link": link,
+                    "votes": votes,
+                    "topic": topic,
+                }
+
+        # 若沒有符合高標準的，退而求其次取第一個有解答的
+        for item in data["items"]:
+            if item.get("answer_count", 0) > 0:
+                title = item.get("title", "")
+                body_html = item.get("body", "")
+                import re
+                body_text = re.sub(r"<[^>]+>", " ", body_html)
+                body_text = re.sub(r"\s+", " ", body_text).strip()
+                excerpt = body_text[:300]
+                link = item.get("link", "")
+                votes = str(item.get("score", 0))
+                print(f"  ✅ 備選問題: {title[:60]}... (票數: {votes})")
                 return {
                     "title": title,
                     "description": excerpt,
@@ -120,8 +148,9 @@ def scrape_top_question(topic):
         return None
 
     except Exception as e:
-        print(f"  ❌ 爬蟲錯誤 ({topic['label']}): {e}")
+        print(f"  ❌ API 錯誤 ({topic['label']}): {e}")
         return None
+
 
 
 # ============================================================
