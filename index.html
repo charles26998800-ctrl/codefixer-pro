@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeFixer Pro｜程式除錯專業指南</title>
+  <meta name="description" content="專為華文工程師打造的技術除錯指南。把那些讓人崩潰的報錯，用最清楚的方式說給你聽。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⚡</span>
+        <span>CodeFixer <em>Pro</em></span>
+      </a>
+      <nav>
+        <a href="#articles">文章</a>
+        <a href="#topics">主題</a>
+        <a href="#about">關於</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 英雄區塊 -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-badge">🔥 工程師必備</div>
+      <h1>當你的程式噴錯<br />我們幫你找答案</h1>
+      <p class="hero-sub">把 Stack Overflow 那些看不懂的英文解法，翻譯成你能立刻上手的中文步驟。沒有廢話，直接解決問題。</p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">50+</span><span class="stat-label">篇除錯指南</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">10k+</span><span class="stat-label">工程師讀者</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">中文說明</span></div>
+      </div>
+    </div>
+    <div class="hero-glow"></div>
+  </section>
+
+  <!-- 主題分類標籤 -->
+  <section class="topics" id="topics">
+    <div class="container">
+      <div class="topic-tags">
+        <button class="tag active">全部</button>
+        <button class="tag">Docker</button>
+        <button class="tag">Python</button>
+        <button class="tag">Next.js</button>
+        <button class="tag">Linux</button>
+        <button class="tag">AI / PyTorch</button>
+        <button class="tag">Git</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 文章列表 -->
+  <section class="articles" id="articles">
+    <div class="container">
+      <h2 class="section-title">最新文章</h2>
+      <div class="article-grid">
+
+        <!-- 文章卡片 1（精選） -->
+        <article class="card card-featured">
+          <div class="card-badge">精選</div>
+          <div class="card-meta">
+            <span class="card-tag tag-docker">Docker</span>
+            <span class="card-date">2026-07-15</span>
+          </div>
+          <h2 class="card-title">
+            <a href="articles/docker-overlay2.html">docker system prune 跑完，硬碟還是滿的？我是怎麼找到那個吃掉 40GB 的元兇</a>
+          </h2>
+          <p class="card-excerpt">上週四深夜，我的 staging server 突然就炸了。CI/CD pipeline 開始噴各種奇怪的錯誤，仔細一查，才發現根本原因就一行字：No space left on device...</p>
+          <a href="articles/docker-overlay2.html" class="card-cta">閱讀全文 →</a>
+        </article>
+
+        <!-- 文章卡片 2 -->
+        <article class="card">
+          <div class="card-meta">
+            <span class="card-tag tag-python">Python</span>
+            <span class="card-date">2026-07-15</span>
+          </div>
+          <h2 class="card-title">
+            <a href="#">如何解決 Python asyncio 中同時捕捉 KeyboardInterrupt 與 CancelledError 的衝突問題</a>
+          </h2>
+          <p class="card-excerpt">在開發非同步應用時，想同時處理人為中斷與超時取消，結果例外捕捉彼此干擾？這篇文章告訴你怎麼精準分層處理...</p>
+          <a href="#" class="card-cta">閱讀全文 →</a>
+        </article>
+
+        <!-- 佔位卡片（即將推出） -->
+        <article class="card card-coming-soon">
+          <div class="card-coming-label">即將推出</div>
+          <div class="card-meta">
+            <span class="card-tag tag-nextjs">Next.js</span>
+          </div>
+          <h2 class="card-title">Next.js App Router 資料快取無法更新？強制清除快取的完整指南</h2>
+          <p class="card-excerpt">明明改了程式碼，頁面就是抓到舊資料？這篇會告訴你 Next.js 快取機制的真相，以及三種強制更新的方法...</p>
+        </article>
+
+        <article class="card card-coming-soon">
+          <div class="card-coming-label">即將推出</div>
+          <div class="card-meta">
+            <span class="card-tag tag-ai">AI / PyTorch</span>
+          </div>
+          <h2 class="card-title">CUDA Out of Memory 且清空快取也沒用？PyTorch 顯存碎片問題的終極解法</h2>
+          <p class="card-excerpt">跑 AI 模型時遇到 CUDA OOM，重開機也沒用？問題可能出在記憶體碎片化，而不是模型本身太大...</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 訂閱區塊 -->
+  <section class="subscribe">
+    <div class="container subscribe-inner">
+      <div class="subscribe-text">
+        <h2>不想再踩一樣的坑？</h2>
+        <p>訂閱我們，每週收到最新的除錯指南，在報錯找上你之前，先學會怎麼解決它。</p>
+      </div>
+      <form class="subscribe-form" onsubmit="return false;">
+        <input type="email" placeholder="your@email.com" />
+        <button type="submit">免費訂閱</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <p>© 2026 CodeFixer Pro. 為華文工程師而生。</p>
+    </div>
+  </footer>
+
+</body>
+</html>

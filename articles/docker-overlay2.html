@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>docker system prune 跑完硬碟還是滿的？找到那個吃掉 40GB 元兇的方法｜CodeFixer Pro</title>
+  <meta name="description" content="執行 docker system prune -a 卻無法釋放 overlay2 空間？這篇文章教你如何精準找出吃掉硬碟的容器 Log，並用一行指令安全清空，服務完全不中斷。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">⚡</span>
+        <span>CodeFixer <em>Pro</em></span>
+      </a>
+      <nav>
+        <a href="../index.html#articles">文章</a>
+        <a href="../index.html#topics">主題</a>
+        <a href="../index.html#about">關於</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← 回到首頁</a>
+
+    <header class="article-header">
+      <div class="card-meta">
+        <span class="card-tag tag-docker">Docker</span>
+        <span class="card-tag tag-docker" style="background:rgba(255,255,255,0.07);color:#aaa;">Linux</span>
+        <span class="card-date">2026-07-15</span>
+      </div>
+
+      <h1>docker system prune 跑完，硬碟還是滿的？我是怎麼找到那個吃掉 40GB 的元兇</h1>
+
+      <p class="summary">
+        執行了 <code>docker system prune -a --volumes</code> 卻發現 <code>/var/lib/docker/overlay2</code> 依然肥得像座山？本文帶你用一段腳本精準抓出元兇容器，並用一行指令清空它的 Log，服務完全不需要重啟。
+      </p>
+    </header>
+
+    <hr class="article-divider" />
+
+    <div class="article-body">
+
+      <p>說起來有點丟臉，但我覺得這個坑應該很多人踩過。</p>
+
+      <p>上週四深夜，我的一台 staging server 突然就炸了。CI/CD pipeline 開始噴各種奇怪的錯誤，一開始還以為是程式的 bug，仔細一查，才發現根本原因就一行字：</p>
+
+      <pre><code>No space left on device</code></pre>
+
+      <p>好，我見過這個。深吸一口氣，打開終端機，輸入那行我已經背得滾瓜爛熟的指令：</p>
+
+      <pre><code>docker system prune -a --volumes</code></pre>
+
+      <p>系統開始跑，清了差不多 8GB，我心想「好，搞定了」。</p>
+      <p>結果 <code>df -h</code> 一看，根目錄還是 97% 滿。</p>
+
+      <hr class="article-divider" />
+
+      <h2>問題出在哪？（我花了兩個小時才搞清楚）</h2>
+
+      <p><code>docker system prune</code> 這個指令其實只會清理「孤兒」——就是那些沒有被任何容器使用的映像檔、網路、和掛載卷。它壓根不會動<strong>正在跑的容器裡面的東西</strong>。</p>
+
+      <p>而我的問題，就出在一個跑了快三個月、一直沒重啟的容器上。</p>
+      <p>你猜那個容器裡面是什麼？是 Log。</p>
+      <p>Docker 預設的 Log 機制有個很坑的設計：<strong>它不會自動限制 Log 檔案的大小</strong>。你的應用程式每印一行紀錄，它就忠實地幫你記下來，永無止境，直到把硬碟塞滿為止。我那個容器的 log 檔長到了 43GB。</p>
+
+      <hr class="article-divider" />
+
+      <h2>怎麼找到那個「容量怪獸」</h2>
+
+      <p><code>overlay2</code> 裡面的資料夾名稱都是一串看不懂的 Hash，你根本不知道是哪個容器對應到哪個資料夾。所以你得用這段指令，把 Hash 翻譯回人話：</p>
+
+      <pre><code>docker ps -q | xargs docker inspect \
+  --format '{{.Name}} {{.GraphDriver.Data.WorkDir}}' | \
+while read name workdir; do
+  size=$(sudo du -sh "${workdir%/work}" 2>/dev/null | cut -f1)
+  echo "$size  $name"
+done | sort -h</code></pre>
+
+      <p>跑完之後，你會看到一個清單，大小從小排到大。最後幾行就是你要找的目標。</p>
+
+      <hr class="article-divider" />
+
+      <h2>實際解決：一行指令清空 Log，容器照常運行</h2>
+
+      <p>找到那個可惡的容器之後，先用這個指令拿到它的 ID：</p>
+
+      <pre><code>docker inspect --format '{{.Id}}' &lt;你的容器名稱&gt;</code></pre>
+
+      <p>然後用 <code>truncate</code> 清空 Log 檔。這個指令的重點是，<strong>它不會停掉你的容器</strong>，服務完全不受影響：</p>
+
+      <pre><code>truncate -s 0 /var/lib/docker/containers/&lt;container_id&gt;/*-json.log</code></pre>
+
+      <p>我跑完這行，立刻從 97% 掉回 32%。</p>
+      <p>那種感覺真的很爽，就像是幫伺服器做了一次大掃除。</p>
+
+      <hr class="article-divider" />
+
+      <h2>最重要的部分：以後不要再讓這件事發生</h2>
+
+      <p>解決問題只是治標。真正的解法是，在你的 <code>docker-compose.yml</code> 裡面幫每個服務加上 Log 限制。</p>
+
+      <p>官方文件其實有提這個，但藏得很深，而且沒有強調「你不設的話日後一定會後悔」。所以很多人都不知道這件事：</p>
+
+      <pre><code>services:
+  my_app:
+    image: my_app:latest
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"</code></pre>
+
+      <p>這樣設定之後，這個服務的 Log 最多就是 150MB（50MB × 3 個檔輪替），再也不會無限長大了。</p>
+      <p>改完記得重新 <code>docker-compose up -d</code> 讓設定生效。</p>
+
+      <hr class="article-divider" />
+
+      <p>如果你是跟我一樣深夜被叫醒、現在正在狂 Google 解法——希望這篇文章有幫到你。</p>
+      <p>有問題的話歡迎在下面留言，我會盡量回。</p>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <p>© 2026 CodeFixer Pro. 為華文工程師而生。</p>
+    </div>
+  </footer>
+
+</body>
+</html>
