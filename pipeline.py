@@ -481,6 +481,55 @@ def rebuild_index(articles_meta, site_dir):
 # ============================================================
 # 主流程：每日自動執行
 # ============================================================
+
+# ============================================================
+# 第五模組：SEO 優化 (Sitemap & robots.txt)
+# ============================================================
+def generate_sitemap_and_robots(articles_meta, site_dir):
+    """產生 sitemap.xml 與 robots.txt 幫助 Google 收錄。"""
+    BASE_URL = "https://charles26998800-ctrl.github.io/codefixer-pro"
+    today_iso = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+
+    # 1. 產生 sitemap.xml
+    urls = []
+    # 首頁
+    urls.append(f"""  <url>
+    <loc>{BASE_URL}/</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>""")
+
+    # 各文章頁面
+    for art in articles_meta:
+        # 如果沒有日期或需要轉換格式，可以從 art['date'] 抓，這裡簡單用今天代表最後更新
+        urls.append(f"""  <url>
+    <loc>{BASE_URL}/articles/{art['slug']}.html</loc>
+    <lastmod>{today_iso}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+
+    sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{chr(10).join(urls)}
+</urlset>"""
+
+    with open(os.path.join(site_dir, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write(sitemap_content)
+    print("  🗺️  已生成 sitemap.xml")
+
+    # 2. 產生 robots.txt
+    robots_content = f"""User-agent: *
+Allow: /
+
+Sitemap: {BASE_URL}/sitemap.xml
+"""
+    with open(os.path.join(site_dir, "robots.txt"), "w", encoding="utf-8") as f:
+        f.write(robots_content)
+    print("  🤖 已生成 robots.txt")
+
+
 def run_daily_pipeline(site_dir="site", max_articles=2):
     """完整的每日執行流程。"""
     today = datetime.date.today().isoformat()
@@ -567,6 +616,9 @@ def run_daily_pipeline(site_dir="site", max_articles=2):
     # 重建首頁
     rebuild_index(articles_meta, site_dir)
 
+    # 產生 SEO Sitemap 和 robots.txt
+    generate_sitemap_and_robots(articles_meta, site_dir)
+
     print(f"\n{'='*55}")
     print(f"  ✅ 完成！今日新增 {new_count} 篇文章")
     print(f"  📊 網站共有 {len(articles_meta)} 篇文章")
@@ -587,5 +639,5 @@ if __name__ == "__main__":
 
     run_daily_pipeline(
         site_dir=site_dir,
-        max_articles=2  # 每天最多生成幾篇（可調整）
+        max_articles=5  # 每天產出增加到 5 篇
     )
