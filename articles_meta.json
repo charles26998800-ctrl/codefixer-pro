@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "slug": "2026-07-15-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-07-15",
+    "en_title": "How to Fix the \"Input type and weight type should be the same\" Error in PyTorch",
+    "zh_title": "救命！PyTorch 的 GPU 裝置不匹配地獄：RuntimeError: Input type and weight type should be the same",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "201",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-07-15-how-to-fix-docker-permission-denied",
+    "date": "2026-07-15",
+    "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "每次下 Docker 指令都要加 sudo？教你一招徹底擺脫這個惡夢",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1415",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  }
+]
