@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://charles26998800-ctrl.github.io/codefixer-pro/sitemap.xml

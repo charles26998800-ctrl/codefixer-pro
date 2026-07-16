@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-07-16-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-07-16",
+    "en_title": "Debugging the \"Hydration Failed\" Error in Next.js and React 18",
+    "zh_title": "React 18 的 Hydration 錯誤：別讓前後端的不一致毀了你的週末",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-07-16-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-07-16",
+    "en_title": "Stop Pushing to Docker Hub: How to Use Local Images with Minikube",
+    "zh_title": "為什麼 Minikube 總是抓不到我的 Local Docker Image？別再浪費時間推送到 Docker Hub 了！",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "688",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-07-16-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-07-16",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Mind",
+    "zh_title": "手滑 Git commit 怎麼辦？別慌，這招讓你優雅地「時光倒流」",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27224",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-07-16-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-07-16",
+    "en_title": "How to Fix the \"Input type and weight type should be the same\" Error in PyTorch",
+    "zh_title": "PyTorch 報錯：Input type 和 weight type 不一致的解法與防坑指南",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "201",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-07-16-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-07-16",
+    "en_title": "How to Check If a File Exists in Python Without Using Try-Except Blocks",
+    "zh_title": "檢查檔案是否存在，別再讓 try-except 把程式碼搞得像迷宮了",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7349",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
     "slug": "2026-07-15-runtimeerror-input-type-torchfloattensor-and-weigh",
     "date": "2026-07-15",
     "en_title": "How to Fix the \"Input type and weight type should be the same\" Error in PyTorch",
