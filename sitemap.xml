@@ -2,169 +2,199 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-21-runtimeerror-input-type-torchfloattensor-and-weigh.html</loc>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-21-react-18-hydration-failed-because-the-initial-ui-d.html</loc>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-21-how-do-i-undo-the-most-recent-local-commits-in-git.html</loc>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-21-how-can-i-use-local-docker-images-with-minikube.html</loc>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-21-how-to-fix-docker-permission-denied.html</loc>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-20-how-do-i-check-whether-a-file-exists-without-excep.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-20-runtimeerror-input-type-torchfloattensor-and-weigh.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-20-error-message-quoterror0308010cdigital-envelope-ro.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-20-how-do-i-undo-the-most-recent-local-commits-in-git.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-20-how-can-i-use-local-docker-images-with-minikube.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-19-runtimeerror-input-type-torchfloattensor-and-weigh.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-19-how-do-i-undo-the-most-recent-local-commits-in-git.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-19-how-do-i-check-whether-a-file-exists-without-excep.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-19-how-can-i-use-local-docker-images-with-minikube.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-19-how-to-fix-docker-permission-denied.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-18-error-message-quoterror0308010cdigital-envelope-ro.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-18-how-do-i-undo-the-most-recent-local-commits-in-git.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-18-react-18-hydration-failed-because-the-initial-ui-d.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-18-how-to-fix-docker-permission-denied.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-18-how-can-i-use-local-docker-images-with-minikube.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-17-how-do-i-undo-the-most-recent-local-commits-in-git.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-17-how-do-i-check-whether-a-file-exists-without-excep.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-17-runtimeerror-input-type-torchfloattensor-and-weigh.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-17-error-message-quoterror0308010cdigital-envelope-ro.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-17-how-to-fix-docker-permission-denied.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-16-react-18-hydration-failed-because-the-initial-ui-d.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-16-how-can-i-use-local-docker-images-with-minikube.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-16-how-do-i-undo-the-most-recent-local-commits-in-git.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-16-runtimeerror-input-type-torchfloattensor-and-weigh.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-16-how-do-i-check-whether-a-file-exists-without-excep.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-15-runtimeerror-input-type-torchfloattensor-and-weigh.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://charles26998800-ctrl.github.io/codefixer-pro/articles/2026-07-15-how-to-fix-docker-permission-denied.html</loc>
-    <lastmod>2026-07-20T11:29:45+00:00</lastmod>
+    <lastmod>2026-07-21T10:09:15+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
