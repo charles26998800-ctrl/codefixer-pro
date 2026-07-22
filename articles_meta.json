@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-07-22-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-07-22",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Mind",
+    "zh_title": "手殘把垃圾 commit 推進去 Git 了？別慌，救命指南在這",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27226",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-07-22-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-07-22",
+    "en_title": "The cleanest way to check if a file exists in Python",
+    "zh_title": "Python 檢查檔案存不存在，別再為了這點小事寫 try-except 了",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7349",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-07-22-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-07-22",
+    "en_title": "Solving the \"Input type and weight type should be the same\" Error in PyTorch",
+    "zh_title": "救命！PyTorch 報錯：Input type 和 weight type 不匹配？",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "201",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-07-22-how-to-fix-docker-permission-denied",
+    "date": "2026-07-22",
+    "en_title": "Fixing the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "為什麼 Docker 老是跟我說權限不足？別再傻傻加 sudo 了",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1415",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-07-22-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-07-22",
+    "en_title": "How to Fix the \"Hydration Failed\" Error in Next.js and React 18",
+    "zh_title": "救命！Next.js 報錯 Hydration failed：當伺服器跟瀏覽器開始吵架",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
     "slug": "2026-07-21-runtimeerror-input-type-torchfloattensor-and-weigh",
     "date": "2026-07-21",
     "en_title": "How to Fix the \"RuntimeError: Input type and weight type should be the same\" in PyTorch",
