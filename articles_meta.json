@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-07-23-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-07-23",
+    "en_title": "How to Use Local Docker Images with Minikube Without the Registry Headache",
+    "zh_title": "別再傻傻推送到 Docker Hub 了！在 Minikube 使用本地映像檔的正確姿勢",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "688",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-07-23-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-07-23",
+    "en_title": "How to Fix the \"Input type and weight type should be the same\" Error in PyTorch",
+    "zh_title": "為什麼 PyTorch 又在跟我鬧脾氣？解決 RuntimeError: Input type and weight type mismatch",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "201",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-07-23-how-to-fix-docker-permission-denied",
+    "date": "2026-07-23",
+    "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "每次下指令都要加 sudo？教你優雅解決 Docker 權限報錯",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1415",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-07-23-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-07-23",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Panicking",
+    "zh_title": "手滑 Commit 了怎麼辦？Git 撤銷本地紀錄的保姆級教學",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27227",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-07-23-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-07-23",
+    "en_title": "How to Check if a File Exists in Python Without Using Try-Except Blocks",
+    "zh_title": "別再用 try-except 檢查檔案了！Python 檢查檔案存在的正確姿勢",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7349",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
     "slug": "2026-07-22-how-do-i-undo-the-most-recent-local-commits-in-git",
     "date": "2026-07-22",
     "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Mind",
