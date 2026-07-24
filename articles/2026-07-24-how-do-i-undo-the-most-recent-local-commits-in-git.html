@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Undo Your Most Recent Local Git Commits Without Losing Your Mind | CodeFixer Pro</title>
+  <meta name="description" content="I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">⚡</span><span>CodeFixer <em>Pro</em></span></a>
+      <nav><a href="../index.html#articles">Articles</a><a href="../index.html#topics">Topics</a></nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- 語言切換按鈕 -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="content-en">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-python">Git</span>
+          <span class="card-date">2026-07-24</span>
+        </div>
+        <h1>How to Undo Your Most Recent Local Git Commits Without Losing Your Mind</h1>
+        <p class="summary">Source: <a href="https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git" target="_blank" rel="noopener">Stack Overflow ↗</a> · 27227 votes</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>I still remember the first time I accidentally committed a massive folder of local environment logs to a production-bound repository. I stared at my terminal in total silence for a solid minute, wondering if I’d just nuked my entire project history or if my boss would notice the sudden 400MB jump in repo size. I spent three hours sweating over the documentation before I realized just how forgiving Git actually is if you know which command to reach for.</p>
+
+<p>The reason this happens is usually just a simple lapse in focus; you run <code>git add .</code> without checking the status, hit commit, and realize a second later that you’ve included files that definitely shouldn't be tracked. Git is designed to be a ledger of your history, so it doesn't just "forget" a commit when you make a mistake. Instead, it holds onto that snapshot until you explicitly tell it to move the pointer back to a previous state. It’s not that you broke the repository—it’s just that Git is being a bit too literal about following your instructions.</p>
+
+<p>When I need to undo a commit but keep my work, I always reach for <code>git reset</code>. If you just want to undo the commit and keep your changes sitting in your staging area, you’ll want to use the soft reset. This is my go-to when I realize I forgot to include one last file in the previous commit.</p>
+
+<pre><code class="language-bash">
+git reset --soft HEAD~1
+</code></pre>
+
+<p>If you’ve completely botched the files and want to wipe the changes from that commit entirely, effectively pretending it never happened, you can use the hard reset. Be careful here, because this command is permanent—it discards any work you had in those files.</p>
+
+<pre><code class="language-bash">
+git reset --hard HEAD~1
+</code></pre>
+
+<p>If you’re somewhere in the middle and just want to unstage the files but keep the work in your working directory, just drop the flag. It’s the safest middle ground when you’re not quite sure what you want to keep.</p>
+
+<p>To stop this from becoming a recurring headache, I’ve made it a habit to run <code>git status</code> every single time before I type <code>git commit</code>. It’s a tiny, two-second pause that has saved me from countless "oops" moments. Adding a <code>.gitignore</code> file to your project early on is also a massive lifesaver, as it keeps those pesky local logs and configuration files from ever showing up in your staging area in the first place.</p>
+
+<p>Hopefully, this gets your repo back in shape without any more stress. Happy coding!</p></div>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="content-zh" style="display:none">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-python">Git</span>
+          <span class="card-date">2026-07-24</span>
+        </div>
+        <h1>還沒 Push 就手滑 Commit 了？別怕，Git 救得回來</h1>
+        <p class="summary">來源：<a href="https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git" target="_blank" rel="noopener">Stack Overflow ↗</a> · 27227 票</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>記得剛開始當菜鳥工程師那會兒，有次為了趕下班，想說把手邊的 code commit 一下再走，結果腦袋當機，把一堆還在測試中的 Debug 用的 Log 檔、甚至是不小心把敏感的測試帳密都一起 commit 進去了。看著螢幕上顯示「1 file changed, 12 insertions」，我整個人差點原地崩潰，冷汗直接流下來，心想這下慘了，要是直接 push 上去被同事看到，我這張老臉還要不要啊？</p>
+
+<p>其實這問題之所以會讓人緊張，是因為我們總覺得 commit 就像是寫在石頭上的刻痕，一旦按下去就改不了。但 Git 其實沒那麼無情，說穿了，你只是在自己的本機儲存庫（Local Repository）裡留下了一個紀錄點。只要你還沒執行 <code>git push</code> 把這些「黑歷史」推送到遠端伺服器，這些 commit 其實都還只是你個人電腦裡的私事，想怎麼修都行。</p>
+
+<p>當我發現自己 commit 錯東西的時候，通常會直接用 <code>git reset</code> 來處理。如果你只是單純想把上一個 commit 撤銷，但又想保留剛剛修改過的檔案內容，方便你重新調整後再 commit，我最常用的指令就是：</p>
+
+<pre><code class="language-bash">
+git reset --soft HEAD~1
+</code></pre>
+
+<p>這行指令的意思是把 HEAD 指針往回撥一個位置，而且「--soft」這個參數非常貼心，它會幫你把原本 commit 裡面的那些檔案改動，全部丟回「暫存區（Staging Area）」。這樣一來，你原本辛苦寫的程式碼都不會消失，只是退回到了「準備要 commit」的狀態。這時候你只要把不該放進去的檔案用 <code>git reset <file></code> 移出暫存區，或者直接改好代碼，再重新 commit 一次，沒人會知道你剛剛發生過什麼「災難」。</p>
+
+<p>當然啦，如果你確定剛剛那些 commit 的內容根本就是垃圾，完全不想要了，那就把參數改成「--hard」：</p>
+
+<pre><code class="language-bash">
+git reset --hard HEAD~1
+</code></pre>
+
+<p>這指令就比較暴力了，它會直接把你最後一次 commit 的所有修改全部抹除，檔案會恢復到前一個 commit 的乾淨狀態。說實話，每次按下去之前我都還是會深呼吸一下，畢竟這可是會真的把檔案改動刪掉的，千萬別按錯了。</p>
+
+<p>為了避免這種心驚膽跳的時刻再次發生，我現在養成了一個好習慣：在 commit 之前，一定會先執行 <code>git status</code> 看一下到底有哪些檔案被盯上了。或者，如果你跟我一樣偶爾會恍神，建議直接用 <code>git add -p</code> 來逐行檢查你要送出的變更。這樣就算真的手滑，至少在 commit 的當下，你還有一道最後的防線可以確認自己到底改了什麼。</p>
+
+<p>處理 Git 的錯誤其實就是這行工作的日常，習慣了就沒什麼好怕的，下次再遇到這種情況，先別急著關電腦，深呼吸用這招救回來就好啦！</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© 2026 CodeFixer Pro. Built for developers worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    }
+  </script>
+</body>
+</html>
