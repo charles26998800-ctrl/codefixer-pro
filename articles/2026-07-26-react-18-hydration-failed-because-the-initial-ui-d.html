@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debugging the "Hydration Failed" Error in Next.js and React 18 | CodeFixer Pro</title>
+  <meta name="description" content="I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live " />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">⚡</span><span>CodeFixer <em>Pro</em></span></a>
+      <nav><a href="../index.html#articles">Articles</a><a href="../index.html#topics">Topics</a></nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- 語言切換按鈕 -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="content-en">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-nextjs">Next.js</span>
+          <span class="card-date">2026-07-26</span>
+        </div>
+        <h1>Debugging the "Hydration Failed" Error in Next.js and React 18</h1>
+        <p class="summary">Source: <a href="https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render" target="_blank" rel="noopener">Stack Overflow ↗</a> · 341 votes</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>I still remember the first time I upgraded a project to React 18 and saw my entire console turn into a graveyard of red text. I spent three hours—yes, three full hours—trying to figure out why my production build looked like a flickering mess of broken layout shifts, only to realize the server and the client were essentially shouting different sentences at each other. It’s one of those bugs that makes you want to throw your monitor out the window, but once you understand the "why," it actually starts to make a lot of sense.</p>
+
+<p>The core reason this happens is that React 18 is much stricter about the "Hydration" process than previous versions. When you use Server-Side Rendering (SSR), Next.js generates the initial HTML on the server and sends it to the browser. Once the browser loads your JavaScript, React tries to "hydrate" that static HTML by attaching event listeners and turning it into a dynamic app. If the HTML the server sent doesn't match the HTML the browser generates during that first render, React just throws its hands up in frustration and gives you that hydration error. This usually happens because you’re using something like <code>Date.now()</code>, <code>Math.random()</code>, or checking a <code>window</code> property that doesn't exist on the server.</p>
+
+<p>I fixed this by ensuring that my component doesn't attempt to render dynamic, client-only data until the component has actually mounted. If you’re trying to render something that changes based on the user's environment, you need to wait until the client side is ready. I usually reach for a simple <code>useEffect</code> hook to toggle a "mounted" state, which prevents the server from trying to guess what the dynamic content should look like.</p>
+
+<pre><code class="language-javascript">
+import { useState, useEffect } from "react";
+
+export default function MyComponent() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() =&gt; {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null; // Or a loading skeleton
+  }
+
+  return (
+    &lt;div&gt;
+      {/* Now it's safe to render your dynamic data */}
+      Current time: {new Date().toLocaleTimeString()}
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+<p>To prevent this from haunting your future builds, make it a golden rule to never rely on global browser objects like <code>window</code> or <code>localStorage</code> during the initial render phase. If you absolutely need to render something that depends on the client environment, always gate it behind a <code>useEffect</code> or a check for <code>typeof window !== 'undefined'</code>. It’s a small extra step, but it’ll save you from those late-night debugging sessions that make you question your career choices.</p>
+
+<p>Hope this clears up the confusion and helps you get your app back on track. Happy coding, and may your console stay clean!</p></div>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="content-zh" style="display:none">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-nextjs">Next.js</span>
+          <span class="card-date">2026-07-26</span>
+        </div>
+        <h1>React 18 Hydration Error：那個讓我熬夜到凌晨三點的「UI 不匹配」地獄</h1>
+        <p class="summary">來源：<a href="https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render" target="_blank" rel="noopener">Stack Overflow ↗</a> · 341 票</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>記得那天半夜，我正準備把一個折騰了兩週的 Next.js 專案部署上線，滿心期待看到成果，結果瀏覽器打開一看，控制台直接炸出一片紅色的錯誤訊息：「Hydration failed because the initial UI does not match what was rendered on the server」。當下我真的差點崩潰，明明在開發環境跑得好好的，怎麼一進生產環境就開始給我鬧脾氣？為了抓出這個隱形兇手，我盯著螢幕盯到眼睛快脫窗，那種「明明程式碼沒錯，但網頁就是不聽話」的無力感，真的是每個前端工程師的噩夢。</p>
+
+<p>其實這個問題的核心很單純，就是 React 在跟你玩「找不同」。當你使用 SSR（伺服器端渲染）時，伺服器會先把 HTML 生成好傳給瀏覽器，但瀏覽器接手後，發現原本渲染出來的結構，跟它在本地端用 JavaScript 跑出來的結果長得不一樣。這通常發生在我們依賴了瀏覽器獨有的 API，比如 <code>window</code> 物件、<code>localStorage</code>，或是用了像是 <code>Date.now()</code> 這種每次跑都會變的函式。伺服器渲染出來的時間點，跟瀏覽器載入後執行的時間點產生了「時差」，React 一看：「欸？這跟我剛收到的劇本不一樣啊！」然後它就乾脆罷工，直接報錯給你看。</p>
+
+<p>解決這個問題，最快的方法就是讓 React 先「緩一緩」。我當時發現，只要確保組件在伺服器端渲染時不要去碰那些瀏覽器特有的東西，問題就解決了一半。最簡單的手段就是利用 <code>useEffect</code>，因為它只會在瀏覽器端執行，完美避開了伺服器端的渲染過程。我的做法通常是先在組件裡定義一個狀態，初始值設為 <code>false</code>，等組件掛載完成後才切換成 <code>true</code>，這樣就能確保只有在瀏覽器環境下，我才去渲染那些會導致衝突的內容。</p>
+
+<pre><code class="language-javascript">
+import { useState, useEffect } from 'react';
+
+function MyComponent() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() =&gt; {
+    setIsClient(true);
+  }, []);
+
+  return (
+    &lt;div&gt;
+      {isClient ? &lt;p&gt;現在是瀏覽器環境，我可以顯示時間：{new Date().toLocaleTimeString()}&lt;/p&gt; : &lt;p&gt;Loading...&lt;/p&gt;}
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+<p>想要預防這種讓人心累的 Bug，最好的習慣就是在寫組件時時刻刻提醒自己：「這個元件現在到底在哪裡跑？」如果你的 UI 邏輯會因為當下的時間、隨機數或者特定的瀏覽器環境設定而改變，請務必養成把這類邏輯包在 <code>useEffect</code> 裡，或者乾脆使用 <code>dynamic</code> import 並設定 <code>ssr: false</code>。只要把這些「不確定因素」移出伺服器渲染的流程，你的控制台就會變得乾淨清爽很多。</p>
+
+<p>希望大家之後遇到這個紅字時，能比我冷靜一點，畢竟這只是 React 在跟你確認細節而已。寫程式嘛，偶爾被這些小細節卡住也是修行的一部分，祝各位開發順利，早點下班！</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© 2026 CodeFixer Pro. Built for developers worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    }
+  </script>
+</body>
+</html>
