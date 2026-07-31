@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-07-31-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-07-31",
+    "en_title": "How to Use Local Docker Images with Minikube Without the Registry Headache",
+    "zh_title": "為什麼 Minikube 總是抓不到我的 Local Docker Image？別再傻傻推送到 Docker Hub 了！",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "688",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-07-31-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-07-31",
+    "en_title": "How to Fix the \"RuntimeError: Input type and weight type should be the same\" in PyTorch",
+    "zh_title": "PyTorch 報錯：Input type 和 weight type 不一致，別再被卡在 GPU 門口了！",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "201",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-07-31-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-07-31",
+    "en_title": "The Right Way to Check if a File Exists in Python",
+    "zh_title": "不想寫 try-except？Python 檢查檔案存在與否的優雅解法",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7349",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-07-31-how-to-fix-docker-permission-denied",
+    "date": "2026-07-31",
+    "en_title": "Why You Keep Getting \"Permission Denied\" With Docker on Ubuntu",
+    "zh_title": "為什麼每次跑 Docker 都要加 sudo？真的會打到手軟！",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1416",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-07-31-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-07-31",
+    "en_title": "How to Undo Your Last Local Git Commit Without Losing Your Work",
+    "zh_title": "救命！我不小心把垃圾 code commit 上去了，怎麼撤銷最後一次 Git 操作？",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27229",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
     "slug": "2026-07-30-how-do-i-check-whether-a-file-exists-without-excep",
     "date": "2026-07-30",
     "en_title": "How to Check if a File Exists in Python Without Using Try-Except",
