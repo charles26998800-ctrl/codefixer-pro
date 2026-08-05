@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React 18 Hydration Mismatch: Why Your SSR Is Breaking and How to Fix It | CodeFixer Pro</title>
+  <meta name="description" content="I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live " />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">⚡</span><span>CodeFixer <em>Pro</em></span></a>
+      <nav><a href="../index.html#articles">Articles</a><a href="../index.html#topics">Topics</a></nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- 語言切換按鈕 -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="content-en">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-nextjs">Next.js</span>
+          <span class="card-date">2026-08-05</span>
+        </div>
+        <h1>React 18 Hydration Mismatch: Why Your SSR Is Breaking and How to Fix It</h1>
+        <p class="summary">Source: <a href="https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render" target="_blank" rel="noopener">Stack Overflow ↗</a> · 341 votes</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>I still remember the first time I saw the "Hydration failed" error in React 18; I was three hours deep into a Friday afternoon coffee-fueled coding session, convinced I’d finally perfected my server-side rendering setup. I spent the better part of two hours tearing my hair out, checking every single API call and prop, only to realize the culprit was a simple timestamp being generated differently on the server than on the client. It’s one of those classic "works on my machine" moments that makes you question your sanity until you realize the browser and the server are just seeing two different versions of the truth.</p>
+
+<p>The reason this happens is actually quite logical once you peel back the layers of React 18. When you use SSR, the server generates the initial HTML and sends it to the browser. React then "hydrates" that HTML by attaching event listeners and turning it into a fully interactive app. The problem kicks in when the HTML the server sent doesn't perfectly mirror what the client-side code generates on its first pass. Maybe it's a random number, a date, or a browser-specific check like <code>window.localStorage</code>. If the server renders one thing and the client sees something else during that first render, React throws its hands up in frustration and wipes the server-rendered DOM to replace it with its own, which is exactly the performance hit we were trying to avoid in the first place.</p>
+
+<p>When I finally tracked down the issue in my own project, I realized that I was trying to render a component that relied on the current time immediately upon mounting. To fix this, I had to ensure that the component didn't try to render client-specific logic until it was actually mounted in the browser. The most reliable way to handle this is by using a <code>useEffect</code> hook to toggle a state that tells React, "Hey, we’re actually on the client now."</p>
+
+<pre><code class="language-javascript">
+import { useState, useEffect } from 'react';
+
+const MyComponent = () =&gt; {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() =&gt; {
+    setIsClient(true);
+  }, []);
+
+  return (
+    &lt;div&gt;
+      {isClient ? &lt;span&gt;{new Date().toLocaleTimeString()}&lt;/span&gt; : &lt;span&gt;Loading...&lt;/span&gt;}
+    &lt;/div&gt;
+  );
+};
+</code></pre>
+
+<p>By adding that <code>isClient</code> check, I ensured the server always renders the "Loading..." placeholder, which matches perfectly with the initial client render before the <code>useEffect</code> fires. Once the client takes over, the state updates, and the real content renders without triggering that nasty mismatch warning. It’s a simple pattern, but it’s saved me from countless headaches since.</p>
+
+<p>The best way to prevent this from creeping back into your codebase is to audit your components for any "non-deterministic" data. If you’re using <code>window</code>, <code>localStorage</code>, or dynamic dates, wrap those specific pieces of UI in a client-only check or a custom hook that delays rendering until the hydration phase is complete. Keeping your server-rendered HTML strictly static until the hydration is finished is the golden rule for keeping React happy.</p>
+
+<p>Hopefully, this saves you that Friday afternoon headache I had to endure. Let me know if you run into any other weird edge cases!</p></div>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="content-zh" style="display:none">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-nextjs">Next.js</span>
+          <span class="card-date">2026-08-05</span>
+        </div>
+        <h1>React 18 Hydration Error：那個讓我熬夜到凌晨的「伺服器與客戶端不對盤」惡夢</h1>
+        <p class="summary">來源：<a href="https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render" target="_blank" rel="noopener">Stack Overflow ↗</a> · 341 票</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>我還記得那天晚上，為了趕在產品上線前修好最後一個 SSR 功能，我滿懷自信地把程式碼推上測試機，結果瀏覽器控制台直接跳出一整片刺眼的紅字：<code>Hydration failed because the initial UI does not match what was rendered on the server</code>。當下我真的差點崩潰，明明在開發環境跑得好好的，怎麼一進到生產模式就變成了這種「伺服器說一套、瀏覽器做一套」的尷尬局面？那種看著螢幕發呆、懷疑是不是瀏覽器快取壞掉，結果發現是自己架構問題的無力感，真的是工程師職涯中最想刪除的記憶之一。</p>
+
+<p>其實這問題的根本原因很單純，就是 React 18 變嚴格了。當我們使用 SSR 時，伺服器會先產生一份 HTML 發送給瀏覽器，然後瀏覽器端的 React 會嘗試「接管（Hydrate）」這份 HTML。但如果伺服器渲染出來的內容，跟瀏覽器第一次執行 JavaScript 後產生的內容有哪怕一點點不同，React 就會直接翻臉，認為這是不合法的狀態，乾脆直接重刷整個畫面。最常見的兇手就是 <code>Date()</code>、隨機數、或是依賴瀏覽器特有 API（像是 <code>localStorage</code> 或 <code>window</code> 物件）的邏輯，因為這些東西在伺服器跑的時候根本不存在或是值不一樣，結果導致兩邊的畫面兜不起來。</p>
+
+<p>我那次踩坑後才發現，最簡單的解法就是讓元件「誠實」。既然我們知道瀏覽器端的邏輯在伺服器上會出錯，那就乾脆在伺服器渲染時先給它一個「安全」的預設值，等元件真的掛載（mount）到瀏覽器上後，再進行真正的渲染。我後來習慣用 <code>useEffect</code> 來處理這類依賴環境的邏輯，確保只有在瀏覽器環境下才會執行。</p>
+
+<pre><code class="language-javascript">
+import { useState, useEffect } from 'react';
+
+function MyComponent() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() =&gt; {
+    setIsClient(true);
+  }, []);
+
+  return (
+    &lt;div&gt;
+      {isClient ? (
+        &lt;span&gt;這是只有瀏覽器才看得到的正確資料：{localStorage.getItem('key')}&lt;/span&gt;
+      ) : (
+        &lt;span&gt;載入中...&lt;/span&gt;
+      )}
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+<p>想要預防這種地獄輪迴再次發生，我現在寫元件時只要涉及到「可能會跟伺服器端結果不一致」的邏輯，都會下意識地先檢查環境。你可以試著安裝 <code>use-is-browser</code> 這類小工具，或是乾脆養成習慣，只要是瀏覽器特有的 API，一律包在 <code>useEffect</code> 或是 <code>typeof window !== 'undefined'</code> 的判斷式裡。只要讓伺服器跟瀏覽器在第一次碰面時看到一樣的內容，這討厭的紅字基本上就不會再來找你麻煩了。</p>
+
+<p>祝大家寫程式都能順利一次編譯通過，別像我當年一樣在凌晨三點跟瀏覽器說悄悄話啊！</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© 2026 CodeFixer Pro. Built for developers worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    }
+  </script>
+</body>
+</html>

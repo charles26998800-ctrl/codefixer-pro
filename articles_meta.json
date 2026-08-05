@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-08-05-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-08-05",
+    "en_title": "How to Undo Your Most Recent Local Git Commits (Without Losing Your Work)",
+    "zh_title": "手滑提交了不該送出的程式碼？別慌，Git 救命指南來了",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27233",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-08-05-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-08-05",
+    "en_title": "Why Your PyTorch Model Keeps Crashing with a Device Mismatch Error",
+    "zh_title": "PyTorch 報錯：Input type 和 weight type 不一致？別讓 GPU 變成裝飾品",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "201",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-08-05-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-08-05",
+    "en_title": "React 18 Hydration Mismatch: Why Your SSR Is Breaking and How to Fix It",
+    "zh_title": "React 18 Hydration Error：那個讓我熬夜到凌晨的「伺服器與客戶端不對盤」惡夢",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-08-05-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-08-05",
+    "en_title": "The Cleanest Way to Check if a File Exists in Python",
+    "zh_title": "別再為了檢查檔案存不存在而濫用 try-except 了！",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7349",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-08-05-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-08-05",
+    "en_title": "How to Use Local Docker Images with Minikube Without the Registry Headache",
+    "zh_title": "別再把 Image 推到 Docker Hub 了！Minikube 本地開發的省力技巧",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "688",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
     "slug": "2026-08-04-how-do-i-undo-the-most-recent-local-commits-in-git",
     "date": "2026-08-04",
     "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Mind",
