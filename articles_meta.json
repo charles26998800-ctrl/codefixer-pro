@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-08-06-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-08-06",
+    "en_title": "How to Fix \"RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same\"",
+    "zh_title": "PyTorch 報錯：Input type 和 weight type 不一致？別慌，這只是設備沒對齊而已",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "201",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-08-06-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-08-06",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Work",
+    "zh_title": "手滑提交了不該送出的程式碼？Git 撤銷 commit 的實戰指南",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27234",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-08-06-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-08-06",
+    "en_title": "Resolving the \"Hydration Failed\" Error in Next.js and React 18",
+    "zh_title": "React 18 惡夢：Hydration Failed 的除錯心法",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-08-06-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-08-06",
+    "en_title": "How to Fix the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "又是 Node.js 版本惹的禍：解決 error:0308010C:digital envelope routines::unsupported",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
+    "slug": "2026-08-06-how-to-fix-docker-permission-denied",
+    "date": "2026-08-06",
+    "en_title": "How to Fix Docker \"Permission Denied\" Errors on Ubuntu",
+    "zh_title": "為什麼 Docker 總是要我加 sudo？解決 Permission denied 的終極方案",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1416",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
     "slug": "2026-08-05-how-do-i-undo-the-most-recent-local-commits-in-git",
     "date": "2026-08-05",
     "en_title": "How to Undo Your Most Recent Local Git Commits (Without Losing Your Work)",
