@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-08-08-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-08-08",
+    "en_title": "Why Your Next.js App is Crashing: Solving the Hydration Mismatch Error",
+    "zh_title": "React 18 Hydration Error：那個讓我熬夜到凌晨兩點的「UI 不匹配」地獄",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-08-08-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-08-08",
+    "en_title": "How to Check If a File Exists in Python Without Relying on Exceptions",
+    "zh_title": "別再為了檢查檔案是否存在而寫滿滿的 try-except 了",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7349",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-08-08-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-08-08",
+    "en_title": "How to Use Local Docker Images with Minikube Without Pulling Your Hair Out",
+    "zh_title": "別再浪費時間推送到 Docker Hub 了！如何在 Minikube 直接用本地鏡像",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "688",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-08-08-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-08-08",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Mind",
+    "zh_title": "手殘黨必備：還沒推上遠端前，如何優雅地「吃掉」剛做的 Git Commit？",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27235",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-08-08-how-to-fix-docker-permission-denied",
+    "date": "2026-08-08",
+    "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "被 Docker 權限搞到心累？別再一直加 sudo 了！",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1416",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
     "slug": "2026-08-07-how-can-i-use-local-docker-images-with-minikube",
     "date": "2026-08-07",
     "en_title": "How to Use Local Docker Images with Minikube Without Pulling Your Hair Out",
