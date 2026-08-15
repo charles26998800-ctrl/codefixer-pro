@@ -1,5 +1,49 @@
 [
   {
+    "slug": "2026-08-15-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-08-15",
+    "en_title": "Debugging the \"Hydration Failed\" Error in Next.js and React 18",
+    "zh_title": "React 18 Hydration 錯誤：為什麼我的頁面總是「兩面不是人」？",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-08-15-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-08-15",
+    "en_title": "How to Use Local Docker Images with Minikube Without the Registry Headache",
+    "zh_title": "別再把 Docker Image 推到 Docker Hub 了！Minikube 使用本地映像檔的正確姿勢",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "688",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-08-15-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-08-15",
+    "en_title": "Troubleshooting: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same",
+    "zh_title": "PyTorch 報錯：Input type 和 weight type 不匹配？別慌，這只是裝置在打架而已",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-08-15-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-08-15",
+    "en_title": "Fixing the \"error:0308010C:digital envelope routines::unsupported\" Error in React",
+    "zh_title": "救命！React 專案噴出 error:0308010C，害我以為電腦要壞了",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
     "slug": "2026-08-14-how-do-i-undo-the-most-recent-local-commits-in-git",
     "date": "2026-08-14",
     "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Work",
