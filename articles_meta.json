@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-08-19-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-08-19",
+    "en_title": "Why Next.js Hydration Errors Will Ruin Your Weekend (And How to Fix Them)",
+    "zh_title": "React 18 Hydration 錯誤：當伺服器與瀏覽器「雞同鴨講」的崩潰現場",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-08-19-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-08-19",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Work",
+    "zh_title": "救命！我不小心 commit 了不該 commit 的東西，Git 該怎麼救？",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27236",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-08-19-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-08-19",
+    "en_title": "The Cleanest Way to Check if a File Exists in Python",
+    "zh_title": "別再亂用 try-except 了！檢查檔案是否存在，你其實有更優雅的寫法",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7349",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-08-19-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-08-19",
+    "en_title": "Solving the \"RuntimeError: Input type and weight type should be the same\" in PyTorch",
+    "zh_title": "PyTorch 出錯了？RuntimeError: Input type mismatch 其實只要一行就能搞定",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-08-19-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-08-19",
+    "en_title": "How to Fix the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "React 啟動噴出「digital envelope routines::unsupported」？別怕，這只是 Node.js 的版本代溝",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
     "slug": "2026-08-18-error-message-quoterror0308010cdigital-envelope-ro",
     "date": "2026-08-18",
     "en_title": "Fixing the \"digital envelope routines::unsupported\" Error in React",
