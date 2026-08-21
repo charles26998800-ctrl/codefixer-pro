@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-08-21-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-08-21",
+    "en_title": "The Cleanest Way to Check if a File Exists in Python",
+    "zh_title": "檢查檔案是否存在，真的非得寫 try-except 嗎？",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7349",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-08-21-how-to-fix-docker-permission-denied",
+    "date": "2026-08-21",
+    "en_title": "Tired of Typing Sudo? How to Fix the Docker Permission Denied Error",
+    "zh_title": "為什麼每次跑 Docker 都要加 sudo？教你一勞永逸解決權限問題",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1416",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-08-21-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-08-21",
+    "en_title": "How to Fix the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "救命！React 專案噴出 error:0308010C 是怎麼回事？",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
+    "slug": "2026-08-21-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-08-21",
+    "en_title": "How to Use Local Docker Images with Minikube Without the Registry Headache",
+    "zh_title": "別再重複上傳 Docker Image 了！教你如何讓 Minikube 直接吃本地映像檔",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "688",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-08-21-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-08-21",
+    "en_title": "Solving the \"RuntimeError: Input type and weight type should be the same\" in PyTorch",
+    "zh_title": "被 PyTorch 的裝置錯置搞到快瘋掉？RuntimeError: Input type mismatch 解決指南",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
     "slug": "2026-08-20-how-to-fix-docker-permission-denied",
     "date": "2026-08-20",
     "en_title": "How to Fix Docker \"Permission Denied\" Errors on Ubuntu",

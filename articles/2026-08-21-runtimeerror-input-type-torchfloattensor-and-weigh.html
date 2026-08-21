@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solving the "RuntimeError: Input type and weight type should be the same" in PyTorch | CodeFixer Pro</title>
+  <meta name="description" content="This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">⚡</span><span>CodeFixer <em>Pro</em></span></a>
+      <nav><a href="../index.html#articles">Articles</a><a href="../index.html#topics">Topics</a></nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- 語言切換按鈕 -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="content-en">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-ai">AI / PyTorch</span>
+          <span class="card-date">2026-08-21</span>
+        </div>
+        <h1>Solving the "RuntimeError: Input type and weight type should be the same" in PyTorch</h1>
+        <p class="summary">Source: <a href="https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte" target="_blank" rel="noopener">Stack Overflow ↗</a> · 202 votes</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>I remember the first time I ran into this error, I was deep into a late-night training session for a computer vision project. I’d spent about four hours debugging a data augmentation pipeline, only to have the training loop crash on the very first batch with this cryptic type mismatch error. I stared at my screen for twenty minutes, convinced my GPU drivers were corrupted or that I’d somehow broken PyTorch itself, before realizing I was just being a classic "forgetful dev" who hadn't moved the input data to the right device.</p>
+
+<p>The reason this happens is actually quite straightforward once you stop panicking. PyTorch is very strict about where your tensors live. You see, when you call <code>model.to(device)</code>, you’re successfully moving your model's weights to the GPU (the <code>cuda</code> device), but your training loop is still pulling fresh data from your <code>DataLoader</code> directly into your system RAM (the <code>cpu</code> device). Because the model is sitting on your graphics card expecting GPU-resident tensors, and you're feeding it CPU-resident tensors, PyTorch throws an error because it can't perform math operations across two different memory spaces. It’s essentially like trying to plug a European power cord into a US outlet—the hardware just isn't speaking the same language.</p>
+
+<p>To fix this, you have to explicitly move your input tensors and labels to the same device as your model during every iteration of your training loop. I usually handle this right after I unpack the data from my loader. You don't need to overcomplicate it; just call <code>.to(device)</code> on your tensors before they hit the model. Here is how my training loop looks now:</p>
+
+<pre><code class="language-python">
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)
+
+for data in dataloader:
+    # Move the inputs and labels to the device before passing them to the model
+    inputs, labels = data
+    inputs = inputs.to(device)
+    labels = labels.to(device)
+    
+    outputs = model(inputs)
+    # ... rest of your training logic
+</code></pre>
+
+<p>If you want to prevent this from ruining your flow in the future, my best advice is to write a small helper function or a custom <code>Dataset</code> wrapper that handles device assignment automatically, or just make it a habit to check your device placement in your training boilerplate. I personally keep a <code>device</code> variable defined at the very top of my training script and treat it like a constant, so I never have to guess where my tensors are supposed to go.</p>
+
+<p>Hopefully, this saves you the headache it caused me back in the day. Happy training, and may your loss curves always trend downward!</p></div>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="content-zh" style="display:none">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-ai">AI / PyTorch</span>
+          <span class="card-date">2026-08-21</span>
+        </div>
+        <h1>被 PyTorch 的裝置錯置搞到快瘋掉？RuntimeError: Input type mismatch 解決指南</h1>
+        <p class="summary">來源：<a href="https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte" target="_blank" rel="noopener">Stack Overflow ↗</a> · 202 票</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>還記得剛開始接觸 PyTorch 的時候，有次為了趕論文進度，好不容易寫完模型、準備好資料，滿心期待按下執行鍵，結果螢幕上直接噴出一行紅通通的錯誤訊息：「RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same」。當下我真的差點把鍵盤砸了，心想我明明都寫了 <code>.to(device)</code> 啊，為什麼這個系統還是要這樣折磨我？</p>
+
+<p>其實這個問題的核心邏輯很簡單，就是 PyTorch 是一個非常嚴格的「分組派」，它要求你的模型參數和你的輸入資料，必須待在同一個「房間」裡。當你把模型丟到 GPU (<code>cuda</code>)，但你的資料卻還在 CPU (<code>FloatTensor</code>) 裡面時，兩邊根本無法對話。這就像是你在寫程式時，一邊用繁體中文溝通，另一邊卻堅持要講火星文，運算單元根本無法執行矩陣乘法，最後只能無奈地拋出錯誤，讓你的程式直接冷掉。</p>
+
+<p>要解決這個問題，其實只要在訓練迴圈裡多加一個動作就行了。當你從 <code>dataloader</code> 取出資料時，別忘了把這些輸入資料也「推」到你定義好的 <code>device</code> 上。我後來修改程式碼的方式，就是直接在迴圈內多加一行 <code>.to(device)</code>，看起來會像這樣：</p>
+
+<pre><code class="language-python">
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)
+
+for data in dataloader:
+    # 這裡就是關鍵，要把 inputs 和 labels 都送到同一個裝置上
+    inputs, labels = data
+    inputs = inputs.to(device)
+    labels = labels.to(device)
+    
+    outputs = model(inputs)
+    # 接下來就是計算 loss 等等...
+</code></pre>
+
+<p>最痛苦的莫過於，你以為自己已經設定好 <code>model.to(device)</code> 就萬事大吉，結果卻忽略了資料流才是那個沒跟上的傢伙，這種「明明設定了卻還是錯」的挫折感，真的會讓人懷疑人生。</p>
+
+<p>為了避免以後再被這種低級錯誤卡住，我現在習慣寫一個簡單的工具函式，或者在定義 DataLoader 的時候直接封裝好資料處理邏輯。最推薦的做法是，在你的訓練函數開頭就檢查一遍，確保所有進入模型的 tensor 都經過 <code>to(device)</code> 的洗禮，甚至可以直接寫一個小小的 Helper function 來處理所有資料的搬運，這樣就再也不用擔心漏掉哪一個變數了。</p>
+
+<p>希望大家下次看到這個紅字時，別跟我當初一樣慌，冷靜下來把資料送過去就沒事啦，祝各位訓練模型順利！</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© 2026 CodeFixer Pro. Built for developers worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    }
+  </script>
+</body>
+</html>
