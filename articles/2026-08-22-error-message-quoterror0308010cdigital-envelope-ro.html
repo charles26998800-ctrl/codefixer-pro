@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Fix the "digital envelope routines::unsupported" Error in React | CodeFixer Pro</title>
+  <meta name="description" content="I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/cry" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">⚡</span><span>CodeFixer <em>Pro</em></span></a>
+      <nav><a href="../index.html#articles">Articles</a><a href="../index.html#topics">Topics</a></nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- 語言切換按鈕 -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="content-en">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-nextjs">React</span>
+          <span class="card-date">2026-08-22</span>
+        </div>
+        <h1>How to Fix the "digital envelope routines::unsupported" Error in React</h1>
+        <p class="summary">Source: <a href="https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported" target="_blank" rel="noopener">Stack Overflow ↗</a> · 2572 votes</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>I still remember the day I updated my Node.js version right before a major client demo, only to have my entire React dev server crash with that cryptic <code>error:0308010C:digital envelope routines::unsupported</code> message. I spent three hours staring at the console, convinced I’d somehow corrupted my entire project, only to realize I was just a victim of a major breaking change in the ecosystem. It’s one of those classic "everything was working fine five minutes ago" moments that makes you want to throw your keyboard out the window.</p>
+
+<p>If you’re seeing this, it’s because you’re running Node.js 17 or higher. When the Node team upgraded to OpenSSL 3.0, they tightened up their security, and suddenly, many older Webpack configurations started failing because they rely on algorithms that are now considered legacy. Essentially, your project is trying to use a hashing method that Node.js has deemed "unsupported" for security reasons, and it’s throwing a tantrum because it doesn't know how to handle the newer, stricter standards.</p>
+
+<p>The quickest way I’ve found to squash this is by telling Node.js to use the legacy OpenSSL provider, which effectively downgrades the security requirements for your build process. If you’re on a Mac or Linux machine, you can fix this instantly by setting an environment variable in your terminal before you run your start script. Just run this in your project root:</p>
+
+<pre><code class="language-bash">
+export NODE_OPTIONS=--openssl-legacy-provider
+npm start
+</code></pre>
+
+<p>If you’re stuck on Windows using Command Prompt, you’ll want to set it like this:</p>
+
+<pre><code class="language-cmd">
+set NODE_OPTIONS=--openssl-legacy-provider
+npm start
+</code></pre>
+
+<p>For those of you who don't want to type that every single time, I usually just update the <code>scripts</code> section in my <code>package.json</code> file. It’s a set-it-and-forget-it approach that saves me from losing my mind every time I open a new terminal session. Just modify your <code>start</code> and <code>build</code> commands to look like this:</p>
+
+<pre><code class="language-json">
+"scripts": {
+  "start": "react-scripts --openssl-legacy-provider start",
+  "build": "react-scripts --openssl-legacy-provider build"
+}
+</code></pre>
+
+<p>To keep this from biting you again, my best advice is to keep your development environment consistent by using a version manager like <code>nvm</code> (Node Version Manager). By keeping a <code>.nvmrc</code> file in the root of your project, you can lock your team into a specific Node version, which prevents those "it works on my machine but not yours" scenarios that keep us all up at night.</p>
+
+<p>Hope this gets your build back on track so you can get back to shipping code. Happy coding!</p></div>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="content-zh" style="display:none">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-nextjs">React</span>
+          <span class="card-date">2026-08-22</span>
+        </div>
+        <h1>崩潰！啟動 React 專案卻噴出 OpenSSL Error：這到底是什麼鬼？</h1>
+        <p class="summary">來源：<a href="https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported" target="_blank" rel="noopener">Stack Overflow ↗</a> · 2572 票</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>那天我為了趕一個 Side Project 的 Demo，興沖沖地用 IntelliJ 開了個新的 React 專案，結果 <code>npm start</code> 一按下去，終端機直接賞我一串紅通通的 <code>error:0308010C:digital envelope routines::unsupported</code>。我當下真的差點把鍵盤摔了，明明程式碼一行都還沒寫，連 <code>Hello World</code> 都還沒看到就直接原地爆炸，那種「我明明照著文件做，為什麼還是不行」的無力感，真的是工程師心頭永遠的痛。</p>
+
+<p>其實會發生這個災難，是因為 Node.js 在 v17 版本之後升級了 OpenSSL 到 3.0，這傢伙對加密演算法的安全性要求變得很嚴格。但問題就在於，很多我們常用的 React 工具（像是舊版的 <code>webpack</code>）還在使用舊的演算法，兩個世代的軟體兜在一起，OpenSSL 就會跳出來說：「欸，這不安全，我不支援」，然後你的專案就直接罷工給你看。這真的很讓人火大，因為這根本不是我們程式碼寫錯，而是環境配置的代溝。</p>
+
+<p>要解決這個問題，其實不用把整個 Node.js 版本降回去（除非你真的很閒）。最快的方法就是直接告訴 Node.js：「嘿，別管那麼多，先暫時把限制關掉」。如果你是用 Mac 或 Linux，在啟動專案的指令前加上 <code>NODE_OPTIONS=--openssl-legacy-provider</code> 這個環境變數就搞定了。</p>
+
+<p>我的做法是直接改 <code>package.json</code> 裡的 <code>scripts</code>，把啟動指令改成這樣：</p>
+
+<pre><code class="language-json">
+"scripts": {
+  "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+  "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build"
+}
+</code></pre>
+
+<p>如果你是用 Windows 的 PowerShell，直接這樣寫會報錯，建議直接安裝一個叫 <code>cross-env</code> 的套件，確保不管在哪個作業系統都能跑：</p>
+
+<pre><code class="language-bash">
+npm install cross-env --save-dev
+</code></pre>
+
+<p>然後把腳本改成：</p>
+<p><code>"start": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts start"</code></p>
+
+<p>至於要怎麼預防下次再被這種莫名其妙的環境問題卡死？建議大家養成用 <code>nvm</code> (Node Version Manager) 來管理版本的習慣。當你接手一個舊專案時，先確認該專案原本是用哪個 Node 版本開發的，直接切換過去，通常就能避開這種升級後的相容性地雷。</p>
+
+<p>以後遇到這種莫名其妙的錯誤先別慌，通常都是環境設定在鬧脾氣而已，喝杯咖啡再回來處理通常就能解決了！</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© 2026 CodeFixer Pro. Built for developers worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    }
+  </script>
+</body>
+</html>
