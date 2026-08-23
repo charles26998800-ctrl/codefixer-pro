@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-08-23-how-to-fix-docker-permission-denied",
+    "date": "2026-08-23",
+    "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "為什麼每次跑 Docker 都要加 sudo？教你優雅解決 Permission denied 的苦惱",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1417",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-08-23-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-08-23",
+    "en_title": "How to Undo Your Last Git Commit Without Losing Your Work",
+    "zh_title": "不小心 Commit 了垃圾檔案？別慌，Git 救得回來",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27236",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-08-23-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-08-23",
+    "en_title": "How to Fix the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "React 專案啟動就噴錯？Node.js 與 OpenSSL 的這場「版本分手戲」",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
+    "slug": "2026-08-23-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-08-23",
+    "en_title": "React 18 Hydration Mismatch: Why Your SSR is Breaking",
+    "zh_title": "React 18 Hydration 錯誤搞到我快瘋了：別讓伺服器跟瀏覽器吵架",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-08-23-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-08-23",
+    "en_title": "How to Use Local Docker Images with Minikube Without the Registry Headache",
+    "zh_title": "被 Minikube 搞瘋？教你怎麼優雅地使用本地 Docker Image",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "688",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
     "slug": "2026-08-22-react-18-hydration-failed-because-the-initial-ui-d",
     "date": "2026-08-22",
     "en_title": "Dealing with React 18 Hydration Mismatches: A Survival Guide",
