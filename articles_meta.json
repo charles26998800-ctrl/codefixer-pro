@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-09-03-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-09-03",
+    "en_title": "How to Use Local Docker Images with Minikube Without Pulling Your Hair Out",
+    "zh_title": "別再把 Docker Image 推上 Docker Hub 了！Minikube 本地開發的正確姿勢",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "689",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-09-03-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-09-03",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Panicking",
+    "zh_title": "救命，我不小心把還沒寫好的爛代碼 Commit 了！Git 撤銷大法公開",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27237",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-09-03-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-09-03",
+    "en_title": "Why PyTorch Keeps Complaining About Your Tensor Types",
+    "zh_title": "當 PyTorch 報錯：Input type 和 Weight type 不匹配時，別慌！",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-09-03-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-09-03",
+    "en_title": "Why Your Next.js App is Crashing: Solving the \"Hydration Failed\" Error",
+    "zh_title": "救命！Next.js 報錯 Hydration failed，伺服器跟客戶端到底在吵什麼？",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-09-03-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-09-03",
+    "en_title": "How to Check If a File Exists in Python Without Using Try-Except Blocks",
+    "zh_title": "別再寫 try-except 檢查檔案了：優雅處理檔案存在的幾種方式",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7350",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
     "slug": "2026-09-02-runtimeerror-input-type-torchfloattensor-and-weigh",
     "date": "2026-09-02",
     "en_title": "Fixing the \"RuntimeError: Input type and weight type should be the same\" in PyTorch",
