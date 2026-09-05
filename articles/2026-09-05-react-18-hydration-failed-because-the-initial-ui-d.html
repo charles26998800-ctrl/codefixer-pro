@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React 18 Hydration Mismatch: How to Finally Silence the Console Errors | CodeFixer Pro</title>
+  <meta name="description" content="I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live " />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">⚡</span><span>CodeFixer <em>Pro</em></span></a>
+      <nav><a href="../index.html#articles">Articles</a><a href="../index.html#topics">Topics</a></nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- 語言切換按鈕 -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="content-en">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-nextjs">Next.js</span>
+          <span class="card-date">2026-09-05</span>
+        </div>
+        <h1>React 18 Hydration Mismatch: How to Finally Silence the Console Errors</h1>
+        <p class="summary">Source: <a href="https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render" target="_blank" rel="noopener">Stack Overflow ↗</a> · 341 votes</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>I still remember the first time I migrated a legacy project to React 18; I was feeling pretty confident until I refreshed my browser and saw a wall of red text in the console screaming about hydration mismatches. I spent three hours refactoring my components, convinced I’d messed up my server-side logic, only to realize I was just rendering a simple timestamp that changed every time the page loaded. It’s one of those bugs that makes you want to throw your keyboard out the window because the fix is usually so incredibly trivial, yet the error message is so cryptically vague.</p>
+
+<p>At its core, this error is React’s way of saying, "Hey, what you told me was on the server doesn't match what I'm seeing in the browser right now." Since React 18 is much stricter about the reconciliation process, it expects the initial HTML sent from the server to be identical to the first render generated in the client. When you use dynamic data—like <code>new Date().toLocaleTimeString()</code> or checking <code>localStorage</code>—the server generates one value, but the client generates another the millisecond the JavaScript kicks in. Because they aren't identical, React panics and throws this hydration error to avoid showing the user inconsistent UI states.</p>
+
+<p>The fix I usually reach for is to defer the rendering of those dynamic elements until the component has actually mounted on the client side. By using a simple <code>useEffect</code> hook to toggle a "mounted" state, I can ensure that the problematic piece of code only runs once the client is ready. Here is the pattern I use to clean this up:</p>
+
+<pre><code class="language-javascript">
+import { useState, useEffect } from 'react';
+
+export default function MyComponent() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() =&gt; {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null; // Or return a static placeholder that matches the server
+  }
+
+  return &lt;div&gt;{new Date().toLocaleTimeString()}&lt;/div&gt;;
+}
+</code></pre>
+
+<p>By returning <code>null</code> or a static fallback during the initial server render, you guarantee that the server and client are perfectly in sync for that first pass. Once the component mounts on the client, the <code>isMounted</code> state updates, and your dynamic content renders exactly where you expect it to.</p>
+
+<p>To prevent this from haunting you in future projects, my golden rule is to always verify if a piece of data is truly "server-safe." If you are accessing <code>window</code>, <code>localStorage</code>, or any random number generator, just assume it will cause a hydration mismatch. Guarding these calls with the <code>isMounted</code> pattern or using the <code>suppressHydrationWarning</code> prop on specific HTML elements—if you’re absolutely sure the mismatch is harmless—will save you from those late-night debugging sessions.</p>
+
+<p>Hopefully, this clears up the confusion and saves you a few hours of frustration. Happy coding, and may your console stay refreshingly empty!</p></div>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="content-zh" style="display:none">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-nextjs">Next.js</span>
+          <span class="card-date">2026-09-05</span>
+        </div>
+        <h1>React 18 Hydration Error：那個讓我熬夜到凌晨兩點的「UI 不匹配」地獄</h1>
+        <p class="summary">來源：<a href="https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render" target="_blank" rel="noopener">Stack Overflow ↗</a> · 341 票</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>記得那天晚上，我正準備把一個好不容易寫好的 Next.js 專案推上線，結果打開開發者工具一看，滿滿的紅色錯誤訊息直接噴在我的臉上。畫面上寫著「Hydration failed because the initial UI does not match what was rendered on the server」，我當下真的差點把鍵盤砸了。明明我在本地測試時都好好的，為什麼一上線就開始鬧脾氣？那天我盯著螢幕，看著那個明明看起來一樣的 HTML，卻因為一點點微小的差異而崩潰，那種「我明明寫得沒錯，為什麼你就是不聽話」的無力感，真的是我工程師生涯中數一數二的痛苦時刻。</p>
+
+<p>其實這個問題的核心，在於 React 18 對於 Hydration 的要求變得極度嚴格。簡單來說，Next.js 的運作邏輯是伺服器會先幫你產生一份「預渲染」的 HTML，送到瀏覽器後，React 再進行「水分注入（Hydration）」來讓它變活潑。問題就出在，如果你的伺服器給的 HTML 和瀏覽器第一次跑 React 時產生的 HTML 有一丁點不同（哪怕是一個空格、一個時間戳記，或是因為瀏覽器環境才有的 <code>window</code> 物件），React 就會覺得這兩份東西對不上，然後它就會選擇直接放棄治療，噴出這個錯誤給你。</p>
+
+<p>我後來發現，最常見的兇手就是我在元件裡用了 <code>typeof window !== 'undefined'</code> 這種判斷，或者是在渲染時直接用了 <code>new Date().toLocaleDateString()</code> 這種會隨著時間或環境變動的函數。當伺服器渲染時，它用的是伺服器時間，而瀏覽器渲染時，它卻用的是用戶當地的時間，兩者一對，馬上就不匹配了。我的解決方案其實很簡單，就是確保在 Hydration 完成之前，不要讓 React 去渲染那些會變動的內容。我通常會寫一個簡單的 <code>useHasMounted</code> hook 來處理這個狀況：</p>
+
+<pre><code class="language-javascript">
+import { useState, useEffect } from 'react';
+
+function useHasMounted() {
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() =&gt; {
+    setHasMounted(true);
+  }, []);
+  return hasMounted;
+}
+
+// 在元件中使用：
+const MyComponent = () =&gt; {
+  const hasMounted = useHasMounted();
+  
+  if (!hasMounted) return null; // 或者給個簡單的 loading 狀態
+  
+  return &lt;div&gt;{new Date().toLocaleDateString()}&lt;/div&gt;;
+};
+</code></pre>
+
+<p>這樣做之後，React 在伺服器端會先渲染一個空的佔位符（或是 Loading），等到瀏覽器真的掛載完成後，才把真實的時間渲染出來，這樣前後端就完全對得上啦。</p>
+
+<p>要預防這種鳥事再次發生，我現在養成了習慣，就是盡量把所有跟瀏覽器環境相關的邏輯（例如 <code>localStorage</code> 或 <code>window</code> 操作）通通丟到 <code>useEffect</code> 裡面，或者乾脆用 <code>dynamic</code> 引入並設定 <code>{ ssr: false }</code>。只要你能確保元件在第一次渲染時是「純淨」的，不包含任何隨環境變動的參數，就能避開絕大多數的 Hydration 地獄。</p>
+
+<p>希望這些經驗能幫你省下幾個熬夜的夜晚，畢竟寫程式已經夠累了，我們不需要再為了這種伺服器跟瀏覽器的「溝通不良」賠上睡眠時間。</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© 2026 CodeFixer Pro. Built for developers worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    }
+  </script>
+</body>
+</html>
