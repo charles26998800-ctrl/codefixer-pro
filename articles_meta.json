@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-09-06-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-09-06",
+    "en_title": "Next.js Hydration Errors: Why Your Server and Client Aren't Talking",
+    "zh_title": "React 18 Hydration 錯誤：為什麼我的頁面又崩潰了？",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-09-06-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-09-06",
+    "en_title": "How to Fix \"RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same\"",
+    "zh_title": "PyTorch 報錯解密：別讓 GPU 和 CPU 在你的模型裡吵架",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-09-06-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-09-06",
+    "en_title": "Why You’re Seeing \"error:0308010C:digital envelope routines::unsupported\" and How to Fix It",
+    "zh_title": "救命！跑個 React 專案怎麼就噴出個 digital envelope routines 錯誤？",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
+    "slug": "2026-09-06-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-09-06",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Work",
+    "zh_title": "手殘把垃圾塞進 Git？別怕，這樣救回來就好！",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27237",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-09-06-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-09-06",
+    "en_title": "How to Use Local Docker Images with Minikube Without the Registry Headache",
+    "zh_title": "搞定 Minikube：別再傻傻把 Docker image 推到 Docker Hub 了！",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "689",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
     "slug": "2026-09-05-react-18-hydration-failed-because-the-initial-ui-d",
     "date": "2026-09-05",
     "en_title": "React 18 Hydration Mismatch: How to Finally Silence the Console Errors",
