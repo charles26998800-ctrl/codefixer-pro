@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solving the "Hydration Failed" Error in Next.js and React 18 | CodeFixer Pro</title>
+  <meta name="description" content="I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live " />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">⚡</span><span>CodeFixer <em>Pro</em></span></a>
+      <nav><a href="../index.html#articles">Articles</a><a href="../index.html#topics">Topics</a></nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- 語言切換按鈕 -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="content-en">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-nextjs">Next.js</span>
+          <span class="card-date">2026-09-09</span>
+        </div>
+        <h1>Solving the "Hydration Failed" Error in Next.js and React 18</h1>
+        <p class="summary">Source: <a href="https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render" target="_blank" rel="noopener">Stack Overflow ↗</a> · 341 votes</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>I still remember the first time I saw the dreaded "Hydration failed" error in a Next.js project. I had just migrated a legacy app to React 18, confident that everything would be seamless, only to be greeted by a console flooded with red errors the moment I refreshed the page. I spent three hours—yes, three whole hours—convinced that my API calls were broken, only to realize I was just rendering a random date string in my header. </p>
+
+<p>The root cause of this headache is actually quite logical: React is trying to be efficient by comparing the HTML generated on your server with the initial HTML rendered in the browser. When you use server-side rendering, the server sends a static snapshot of your page. Once that reaches the client, React "hydrates" it, essentially attaching event listeners and making it interactive. If the server thinks the time is 12:00:00 but the client’s browser renders 12:00:01, or if you’re using something like <code>localStorage</code> that only exists on the client, React panics. It sees the mismatch, assumes the server-side markup is trash, and forces a re-render, which is exactly why your console is screaming at you.</p>
+
+<p>To fix this, you need to ensure that the component is only rendered after the initial mount has happened on the client. I usually handle this by using a simple <code>useEffect</code> hook to track the mounting status. By creating a custom hook or just a local state variable, you can delay the rendering of the problematic content until you're absolutely certain you're in the browser environment. Here is how I typically structure that fix:</p>
+
+<pre><code class="language-javascript">
+import { useState, useEffect } from 'react';
+
+const SafeHydration = ({ children }) =&gt; {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() =&gt; {
+    setIsMounted(true);
+  }, []);
+
+  return isMounted ? children : null;
+};
+
+// Use it in your component like this:
+export default function MyPage() {
+  return (
+    &lt;SafeHydration&gt;
+      &lt;p&gt;Rendered only on the client: {new Date().toLocaleTimeString()}&lt;/p&gt;
+    &lt;/SafeHydration&gt;
+  );
+}
+</code></pre>
+
+<p>By wrapping the sensitive part of your UI in that <code>SafeHydration</code> component, you prevent the server from trying to guess what the client-only value should be. If you don't need the content to be SEO-friendly, this is the cleanest way to silence the error without tearing your hair out.</p>
+
+<p>The best way to prevent this in the future is to keep your server-side logic and client-side logic strictly separated. If you find yourself reaching for <code>window</code> or <code>localStorage</code> inside a component, immediately ask yourself if that component really needs to be rendered during the initial server pass. If it doesn't, force it to wait for the client.</p>
+
+<p>Hope this saves you from the same afternoon of frustration I dealt with. Happy coding, and may your hydration errors be few and far between!</p></div>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="content-zh" style="display:none">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-nextjs">Next.js</span>
+          <span class="card-date">2026-09-09</span>
+        </div>
+        <h1>救命！React 18 的 Hydration Error 到底要怎麼解？</h1>
+        <p class="summary">來源：<a href="https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render" target="_blank" rel="noopener">Stack Overflow ↗</a> · 341 票</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>記得剛升級到 React 18 那個週末，我原本想趕快把專案跑起來，結果打開瀏覽器控制台一看，整排紅字寫著「Hydration failed」，頁面還閃了一下才變正常。當時我真的差點崩潰，明明程式碼檢查了三遍都沒錯，甚至懷疑是自己寫法太髒，搞得我那天連咖啡都喝不下去，盯著螢幕快要鬥雞眼。</p>
+
+<p>其實這個問題的核心很單純，就是「伺服器端的 HTML」跟「瀏覽器端第一次渲染的 HTML」長得不一樣。你想想看，Next.js 在伺服器渲染時會先產生一組 HTML，但當瀏覽器載入 JavaScript 後，React 會試圖接手（也就是所謂的 Hydration），如果它發現瀏覽器算出來的結果跟伺服器給的不一樣，它就會直接放棄並噴出錯誤。最常見的兇手就是你在渲染時用了 <code>new Date()</code>、隨機數 <code>Math.random()</code>，或是根據當前時區顯示的時間，因為伺服器和瀏覽器的時間點根本對不上啊！</p>
+
+<p>如果你也是因為這些動態內容導致噴錯，最直觀的解法就是確保第一次渲染時，兩邊能達成共識。我後來發現，只要讓元件在「掛載完成（Mounted）」之後才顯示這些動態內容，就能完美避開這個坑。我通常會寫一個簡單的 <code>useHasMounted</code> hook，或是直接用 <code>useEffect</code> 來控制：</p>
+
+<pre><code class="language-javascript">
+import { useState, useEffect } from 'react';
+
+const MyComponent = () =&gt; {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() =&gt; {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    // 在這裡放一個 loading 的狀態或是空內容
+    return null; 
+  }
+
+  return &lt;div&gt;現在時間是：{new Date().toLocaleString()}&lt;/div&gt;;
+};
+</code></pre>
+
+<p>用這種方式，伺服器只會渲染出空的或是固定的 placeholder，等瀏覽器接手後，<code>useEffect</code> 才會觸發，這時候再把真正的動態內容丟出來，React 就不會再跟我吵架了。</p>
+
+<p>至於怎麼預防這種鬼打牆的情況再次發生，我現在寫程式有個習慣，就是嚴格禁止在渲染函式（Render Body）裡直接寫會變動的邏輯。不管是時間戳記還是隨機 ID，通通丟進 <code>useEffect</code> 或者使用 <code>suppressHydrationWarning</code> 屬性（如果是那種無傷大雅的屬性差異）。只要養成「伺服器渲染只負責靜態結構」的習慣，這種 Hydration 錯誤真的會少掉一大半。</p>
+
+<p>希望這招能拯救你的週末，別再為了這些紅字熬夜啦！</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© 2026 CodeFixer Pro. Built for developers worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    }
+  </script>
+</body>
+</html>
