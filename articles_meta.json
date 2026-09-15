@@ -1,5 +1,27 @@
 [
   {
+    "slug": "2026-09-15-how-to-fix-docker-permission-denied",
+    "date": "2026-09-15",
+    "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "每次下指令都要打 sudo？教你優雅解決 Docker Permission denied 的地雷",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1419",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-09-15-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-09-15",
+    "en_title": "Fixing the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "遇到 node:crypto 錯誤別慌！一行指令搞定 error:0308010C",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
     "slug": "2026-09-14-how-do-i-undo-the-most-recent-local-commits-in-git",
     "date": "2026-09-14",
     "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Mind",
