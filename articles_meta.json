@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-09-18-how-to-fix-docker-permission-denied",
+    "date": "2026-09-18",
+    "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "每次都要打 sudo 真的會瘋掉！解決 Docker Permission denied 的終極方案",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1419",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-09-18-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-09-18",
+    "en_title": "How to Undo Your Last Local Git Commit Without Losing Your Work",
+    "zh_title": "手殘把垃圾塞進 Git 了？別怕，這招教你神不知鬼不覺地反悔",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27240",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-09-18-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-09-18",
+    "en_title": "How to Fix \"RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same\"",
+    "zh_title": "PyTorch 報錯：Input type 和 weight type 不一致，別再被 GPU 搞瘋了！",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-09-18-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-09-18",
+    "en_title": "How to Fix the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "救命！React 專案噴出 error:0308010C，害我以為電腦壞了",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
+    "slug": "2026-09-18-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-09-18",
+    "en_title": "Stop Pushing to Registry: How to Use Local Docker Images with Minikube",
+    "zh_title": "Minikube 開發地獄：別再為了測試一個小改動，苦苦等待 Docker Hub 上傳了！",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "689",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
     "slug": "2026-09-17-runtimeerror-input-type-torchfloattensor-and-weigh",
     "date": "2026-09-17",
     "en_title": "How to Fix \"RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same\"",
