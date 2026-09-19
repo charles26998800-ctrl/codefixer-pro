@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-09-19-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-09-19",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Mind",
+    "zh_title": "該死，剛才那次 Commit 根本不該送出去！Git 撤銷紀錄指南",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27240",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-09-19-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-09-19",
+    "en_title": "How to Use Local Docker Images with Minikube Without Pushing to a Registry",
+    "zh_title": "別再把 Docker Image 推到 Docker Hub 了！Minikube 本地開發的正確姿勢",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "689",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-09-19-how-to-fix-docker-permission-denied",
+    "date": "2026-09-19",
+    "en_title": "Fixing the Docker \"Permission Denied\" Error on Ubuntu",
+    "zh_title": "每次敲 Docker 指令都要打 sudo，我真的會謝！",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1419",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-09-19-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-09-19",
+    "en_title": "React 18 Hydration Errors: Why Your Server and Client Aren't Talking",
+    "zh_title": "React 18 Hydration 錯誤：那個讓你懷疑人生的「UI 不匹配」惡夢",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-09-19-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-09-19",
+    "en_title": "How to Fix \"error:0308010C:digital envelope routines::unsupported\" in React",
+    "zh_title": "救命！React 專案噴出 error:0308010C，害我以為電腦要壞了",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
     "slug": "2026-09-18-how-to-fix-docker-permission-denied",
     "date": "2026-09-18",
     "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
