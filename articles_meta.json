@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-10-08-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-10-08",
+    "en_title": "How to Check if a File Exists in Python Without Using Try-Except",
+    "zh_title": "別再濫用 try-except 了！檢查檔案是否存在，你其實有更優雅的寫法",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7351",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-10-08-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-10-08",
+    "en_title": "How to Fix the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "救命！React 專案突然報錯：Error: error:0308010C:digital envelope routines::unsupported",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
+    "slug": "2026-10-08-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-10-08",
+    "en_title": "Troubleshooting RuntimeError: Input type and weight type should be the same in PyTorch",
+    "zh_title": "救命！PyTorch 的 GPU 裝置不匹配錯誤，搞到我懷疑人生",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-10-08-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-10-08",
+    "en_title": "Why Your Next.js App is Crashing with \"Hydration Failed\"",
+    "zh_title": "遇到 React Hydration Error？別慌，這其實是 Server 與 Client 的一場誤會",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-10-08-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-10-08",
+    "en_title": "How to Use Local Docker Images with Minikube Without the Registry Headache",
+    "zh_title": "別再為了測試把 Docker Image 推上雲端了！Minikube 本地開發的省力技巧",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "690",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
     "slug": "2026-10-07-react-18-hydration-failed-because-the-initial-ui-d",
     "date": "2026-10-07",
     "en_title": "Solving the \"Hydration Failed\" Error in Next.js and React 18",
