@@ -1,5 +1,49 @@
 [
   {
+    "slug": "2026-10-10-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-10-10",
+    "en_title": "How to Fix \"RuntimeError: Input type and weight type should be the same\" in PyTorch",
+    "zh_title": "救命！PyTorch 報錯：Input 和 Weight 型別不一致的崩潰時刻",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-10-10-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-10-10",
+    "en_title": "How to Use Local Docker Images with Minikube Without Pulling Your Hair Out",
+    "zh_title": "別再把映像檔推到 Docker Hub 了！Minikube 本地開發的省力技巧",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "690",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-10-10-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-10-10",
+    "en_title": "Fixing the \"Hydration Failed\" Error in Next.js and React 18",
+    "zh_title": "React 18 Hydration Error：那個讓我加班到凌晨三點的「伺服器 vs. 客戶端」幽靈",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-10-10-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-10-10",
+    "en_title": "How to Check If a File Exists in Python Without Using Try-Except",
+    "zh_title": "別再用 try-except 檢查檔案了：Python 檢查路徑的優雅寫法",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7351",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
     "slug": "2026-10-09-how-to-fix-docker-permission-denied",
     "date": "2026-10-09",
     "en_title": "Stop Typing Sudo: How to Fix Docker Permission Denied Errors on Ubuntu",
