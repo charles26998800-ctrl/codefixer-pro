@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-10-13-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-10-13",
+    "en_title": "How to Check If a File Exists in Python Without Using Try-Except",
+    "zh_title": "別再濫用 try-except 了！檢查檔案是否存在其實有更優雅的寫法",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7351",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-10-13-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-10-13",
+    "en_title": "Fixing React 18 Hydration Mismatch Errors in Next.js",
+    "zh_title": "救命，React 18 的 Hydration 錯誤快把我搞瘋了！",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-10-13-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-10-13",
+    "en_title": "How to Use Local Docker Images with Minikube Without Pulling Your Hair Out",
+    "zh_title": "別再把 Image 推上 Docker Hub 了！Minikube 使用本地映像檔的正確姿勢",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "690",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-10-13-how-to-fix-docker-permission-denied",
+    "date": "2026-10-13",
+    "en_title": "How to fix the Docker \"Permission denied\" error on Ubuntu",
+    "zh_title": "Docker 權限被拒？別再每次都敲 sudo 了！",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1420",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-10-13-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-10-13",
+    "en_title": "How to Fix \"RuntimeError: Input type and weight type should be the same\" in PyTorch",
+    "zh_title": "PyTorch 報錯 RuntimeError：當你的模型在 GPU，資料卻還在 CPU 的崩潰日常",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
     "slug": "2026-10-12-runtimeerror-input-type-torchfloattensor-and-weigh",
     "date": "2026-10-12",
     "en_title": "How to Fix \"RuntimeError: Input type and weight type should be the same\" in PyTorch",
