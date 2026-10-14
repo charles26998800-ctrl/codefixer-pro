@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-10-14-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-10-14",
+    "en_title": "How to Undo Your Last Local Git Commit Without Losing Your Work",
+    "zh_title": "Git 手殘救星：還沒 Push 的 Commit 怎麼優雅地撤銷？",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27243",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-10-14-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-10-14",
+    "en_title": "Stop Pushing to Registry: How to Use Local Docker Images with Minikube",
+    "zh_title": "為什麼 Minikube 總是抓不到我的 Local Docker Image？別再傻傻推送到 Docker Hub 了！",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "690",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-10-14-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-10-14",
+    "en_title": "Fixing \"RuntimeError: Input type and weight type should be the same\" in PyTorch",
+    "zh_title": "被 PyTorch 的裝置不匹配搞到心累？處理 RuntimeError: Input type and weight type should be the same",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-10-14-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-10-14",
+    "en_title": "How to Check if a File Exists in Python Without Using Try-Except",
+    "zh_title": "別再為了檢查檔案存不存在寫滿滿的 try-except 了！",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7351",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-10-14-how-to-fix-docker-permission-denied",
+    "date": "2026-10-14",
+    "en_title": "Why You Can’t Run Docker Without Sudo (And How to Fix It)",
+    "zh_title": "Docker 老是跳 Permission denied？別再無腦加 sudo 了！",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1420",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
     "slug": "2026-10-13-how-do-i-check-whether-a-file-exists-without-excep",
     "date": "2026-10-13",
     "en_title": "How to Check If a File Exists in Python Without Using Try-Except",
