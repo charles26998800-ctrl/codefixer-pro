@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-10-17-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-10-17",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Mind",
+    "zh_title": "剛 Commit 完才發現檔案搞錯了？別慌，Git 救得回來！",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27243",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-10-17-how-to-fix-docker-permission-denied",
+    "date": "2026-10-17",
+    "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "Docker 老是跳 Permission denied？別再無腦加 sudo 了！",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1420",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-10-17-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-10-17",
+    "en_title": "How to Check If a File Exists in Python Without Using Try-Except",
+    "zh_title": "別再用 try-except 檢查檔案了！Python 優雅檢查檔案存在的正確姿勢",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7352",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-10-17-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-10-17",
+    "en_title": "Solving the \"Hydration Failed\" Error in Next.js and React 18",
+    "zh_title": "被 React Hydration Error 搞到懷疑人生？其實兇手通常只有這幾個",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-10-17-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-10-17",
+    "en_title": "How to Use Local Docker Images with Minikube Without Pushing to a Registry",
+    "zh_title": "別再把 image 推上 Docker Hub 了！在 Minikube 使用本地 Docker 映像檔的正確姿勢",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "690",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
     "slug": "2026-10-16-how-do-i-check-whether-a-file-exists-without-excep",
     "date": "2026-10-16",
     "en_title": "How to Check if a File Exists in Python Without Using Try-Except",
