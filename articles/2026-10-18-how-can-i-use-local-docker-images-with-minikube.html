@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stop Pushing to Docker Hub: How to Use Local Images with Minikube | CodeFixer Pro</title>
+  <meta name="description" content="I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">⚡</span><span>CodeFixer <em>Pro</em></span></a>
+      <nav><a href="../index.html#articles">Articles</a><a href="../index.html#topics">Topics</a></nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- 語言切換按鈕 -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="content-en">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-docker">Kubernetes</span>
+          <span class="card-date">2026-10-18</span>
+        </div>
+        <h1>Stop Pushing to Docker Hub: How to Use Local Images with Minikube</h1>
+        <p class="summary">Source: <a href="https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube" target="_blank" rel="noopener">Stack Overflow ↗</a> · 690 votes</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>I still remember the first time I set up Minikube, thinking I was being clever by building my images locally and immediately trying to deploy them. I sat there for three hours, watching my pods cycle through <code>ImagePullBackOff</code> errors, swearing at my terminal because I was convinced my YAML was broken. It turned out I was just wasting my time pushing and pulling images to a private registry like a sucker, completely unaware that Minikube had a built-in way to talk directly to my local Docker daemon.</p>
+
+<p>The reason this happens is actually pretty straightforward once you stop to think about how Kubernetes works. Minikube runs inside its own virtual machine or container, which acts as a completely isolated environment from your host machine. When you build an image using the Docker CLI on your laptop, that image exists in your host's Docker daemon. When your Minikube cluster tries to pull an image, it looks inside its own internal registry, doesn't find it, tries to reach out to the internet, fails, and gives up. It’s like trying to grab a coffee from your kitchen while you’re sitting in an office three blocks away—they aren't on the same network.</p>
+
+<p>To fix this, you don't need to configure a remote registry or mess with complex networking. You just need to point your host terminal to the Docker daemon running inside Minikube. Run this command in your terminal:</p>
+
+<pre><code class="language-bash">
+eval $(minikube docker-env)
+</code></pre>
+
+<p>Once you’ve run that, any <code>docker build</code> commands you execute will happen directly inside the Minikube environment. After you build your image, make sure your deployment's <code>imagePullPolicy</code> is set to <code>IfNotPresent</code> or <code>Never</code>. If you leave it at the default <code>Always</code>, Kubernetes will try to reach out to a registry, find nothing, and fail. Here is how your deployment file should look:</p>
+
+<pre><code class="language-yaml">
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  template:
+    spec:
+      containers:
+      - name: my-app
+        image: my-local-image:latest
+        imagePullPolicy: IfNotPresent
+</code></pre>
+
+<p>If you ever need to switch back to your host's Docker daemon, you can just run <code>eval $(minikube docker-env -u)</code>. </p>
+
+<p>To keep this from biting you again, I always recommend tagging your local images with specific versions rather than just using <code>latest</code>. It makes it much easier to verify that your cluster is actually running the code you just built, and it prevents those annoying caching issues where you think you've updated your app but you're actually looking at a stale version.</p>
+
+<p>Hope this saves you from the same three-hour headache I had. Happy coding!</p></div>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="content-zh" style="display:none">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-docker">Kubernetes</span>
+          <span class="card-date">2026-10-18</span>
+        </div>
+        <h1>別再把 Docker image 推上雲端了！Minikube 使用本地映像檔的正確姿勢</h1>
+        <p class="summary">來源：<a href="https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube" target="_blank" rel="noopener">Stack Overflow ↗</a> · 690 票</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>記得剛開始碰 Kubernetes 的時候，我為了測試一個小小的功能，每次修改完程式碼都要 build 一次 Docker image，然後還要 push 到 Docker Hub，再從 Minikube 裡面 pull 下來。當時網路速度慢得要命，看著那個下載進度條緩慢爬升，我真的差點崩潰，心想：「我只是改了一行 print，為什麼要搞得像在上傳大型遊戲一樣？」最痛苦的時刻莫過於等到天荒地老，結果跑起來發現還有個 typo 要改，那一刻真的會懷疑人生，想直接把電腦丟出窗外。</p>
+
+<p>其實這背後的原因很簡單，Minikube 就像是一個獨立運作在你的電腦裡的虛擬機（VM）或容器，它有自己的一套 Docker daemon。當你在終端機輸入 <code>docker build</code> 時，你是把映像檔存進了你本機的 Docker 環境，但 Minikube 根本看不見那裡。它就像一個被隔離的孤島，你沒告訴它你有什麼，它當然就只能跑去遙遠的網際網路下載，這也是為什麼很多人會卡在這裡一直報 <code>ImagePullBackOff</code> 的原因。</p>
+
+<p>要解決這個問題，其實不必搞得那麼複雜。最直觀的做法就是讓你的終端機暫時「住進」Minikube 的 Docker 環境裡。只要在下指令前執行這一行：</p>
+
+<pre><code class="language-bash">
+eval $(minikube docker-env)
+</code></pre>
+
+<p>執行這行之後，你後續下的 <code>docker build</code> 指令，就會直接把映像檔蓋進 Minikube 的 Docker daemon 裡。這時候你再去部署你的 Deployment，Kubernetes 就會發現：「欸，這 image 我本地就有啊！」然後秒速啟動，再也不用看那該死的下載進度條了。順帶一提，如果你是用 Docker Desktop 當作 driver 的話，也可以直接用 <code>minikube image load <image-name></code> 這個指令，效果也是一樣好。</p>
+
+<p>為了避免以後又掉進這種「瘋狂 rebuild」的坑，我現在習慣在 <code>deployment.yaml</code> 裡把 <code>imagePullPolicy</code> 設定為 <code>IfNotPresent</code>。這樣就算網路不穩，只要本地有對應的 image，K8s 就不會強迫它去網路上找，省下超多寶貴的開發時間。</p>
+
+<p>好啦，現在趕快去試試看，把那些浪費在等待上傳的時間省下來，拿去多喝杯咖啡或是早點下班比較實在！</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© 2026 CodeFixer Pro. Built for developers worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    }
+  </script>
+</body>
+</html>
