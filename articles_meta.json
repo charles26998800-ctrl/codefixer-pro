@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-10-21-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-10-21",
+    "en_title": "Why PyTorch Keeps Complaining About Tensor Types (And How to Fix It)",
+    "zh_title": "當 PyTorch 報錯說 FloatTensor 和 cuda.FloatTensor 打架，該怎麼救？",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-10-21-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-10-21",
+    "en_title": "How to Check if a File Exists in Python Without Using Try-Except",
+    "zh_title": "別再用 try-except 檢查檔案了：Python 檢查路徑的優雅寫法",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7352",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-10-21-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-10-21",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Mind",
+    "zh_title": "手殘把垃圾 Commit 進 Git 了？別慌，這招幫你一鍵還原",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27244",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-10-21-how-to-fix-docker-permission-denied",
+    "date": "2026-10-21",
+    "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "為什麼執行 Docker 指令老是卡在 Permission denied？教你一招徹底擺脫 sudo",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1420",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-10-21-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-10-21",
+    "en_title": "How to Fix the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "救命！React 專案噴出 error:0308010C 錯誤，搞到凌晨兩點的崩潰紀錄",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
     "slug": "2026-10-20-how-do-i-check-whether-a-file-exists-without-excep",
     "date": "2026-10-20",
     "en_title": "How to Check if a File Exists in Python Without Using Try-Except",
