@@ -1,5 +1,27 @@
 [
   {
+    "slug": "2026-10-24-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-10-24",
+    "en_title": "How to Fix the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "React 專案跑不動？別怕，那只是 Node.js 的版本鬧脾氣",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
+    "slug": "2026-10-24-how-to-fix-docker-permission-denied",
+    "date": "2026-10-24",
+    "en_title": "Stop Typing Sudo: How to Fix Docker Permission Denied Errors",
+    "zh_title": "為什麼 Docker 老是叫我加 sudo？解決 Permission denied 的終極指南",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1420",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
     "slug": "2026-10-23-how-do-i-check-whether-a-file-exists-without-excep",
     "date": "2026-10-23",
     "en_title": "How to Check if a File Exists in Python Without Using Try-Except",
