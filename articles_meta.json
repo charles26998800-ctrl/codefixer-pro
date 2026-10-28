@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-10-28-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-10-28",
+    "en_title": "Troubleshooting RuntimeError: Input type and weight type should be the same in PyTorch",
+    "zh_title": "救命！PyTorch 又報錯：Input type 和 weight type 不一樣？",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-10-28-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-10-28",
+    "en_title": "Stop Pushing to Docker Hub: How to Use Local Images with Minikube",
+    "zh_title": "為什麼 Minikube 總是抓不到我的 Local Image？教你優雅解決這場災難",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "690",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-10-28-how-to-fix-docker-permission-denied",
+    "date": "2026-10-28",
+    "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "Docker 老是跳 Permission denied？別再無腦加 sudo 了！",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1420",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-10-28-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-10-28",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Panicking",
+    "zh_title": "誤刪還是誤送？Git 還原本地 Commit 的救命指南",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27246",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-10-28-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-10-28",
+    "en_title": "Solving the \"Hydration Failed\" Error in Next.js and React 18",
+    "zh_title": "React 18 Hydration Error：那個讓我熬夜到凌晨的「伺服器與客戶端不合」慘案",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
     "slug": "2026-10-27-how-to-fix-docker-permission-denied",
     "date": "2026-10-27",
     "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
