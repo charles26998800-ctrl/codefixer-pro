@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-10-29-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-10-29",
+    "en_title": "Why Your React Project Is Crashing With \"digital envelope routines::unsupported\"",
+    "zh_title": "救命，Node.js 升級後 React 專案直接炸掉：error:0308010C 怎麼解？",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
+    "slug": "2026-10-29-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-10-29",
+    "en_title": "How to Fix the \"Input type and weight type should be the same\" Error in PyTorch",
+    "zh_title": "PyTorch 報錯解密：別讓 GPU 和 CPU 打架啦！",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-10-29-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-10-29",
+    "en_title": "How to Check if a File Exists in Python Without Using Try-Except",
+    "zh_title": "Python 檢查檔案存不存在，別再寫 try-except 寫到心累了",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7352",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-10-29-how-to-fix-docker-permission-denied",
+    "date": "2026-10-29",
+    "en_title": "How to Fix the \"Docker: Permission Denied\" Error on Ubuntu",
+    "zh_title": "解決 Docker Permission denied：別再每次都打 sudo 了！",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1420",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-10-29-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-10-29",
+    "en_title": "Debugging the \"Hydration failed\" Error in Next.js and React 18",
+    "zh_title": "當 React 18 的 Hydration Error 讓你懷疑人生：別慌，這其實是「時差」惹的禍",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
     "slug": "2026-10-28-runtimeerror-input-type-torchfloattensor-and-weigh",
     "date": "2026-10-28",
     "en_title": "Troubleshooting RuntimeError: Input type and weight type should be the same in PyTorch",
