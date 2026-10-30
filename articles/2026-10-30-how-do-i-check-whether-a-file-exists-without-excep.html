@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Check if a File Exists in Python Without Using Try-Except | CodeFixer Pro</title>
+  <meta name="description" content="How do I check whether a file exists or not, without using the try statement?" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">⚡</span><span>CodeFixer <em>Pro</em></span></a>
+      <nav><a href="../index.html#articles">Articles</a><a href="../index.html#topics">Topics</a></nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- 語言切換按鈕 -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="content-en">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-python">Python</span>
+          <span class="card-date">2026-10-30</span>
+        </div>
+        <h1>How to Check if a File Exists in Python Without Using Try-Except</h1>
+        <p class="summary">Source: <a href="https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions" target="_blank" rel="noopener">Stack Overflow ↗</a> · 7352 votes</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>Early in my career, I was building a log-parsing script that had to scan thousands of directories, and I remember obsessively wrapping every single file operation in massive <code>try-except</code> blocks. I spent three hours debugging why my code was running at a snail's pace, only to realize the overhead of catching exceptions in a tight loop was absolutely killing my performance. I felt like a total amateur when I realized there were much cleaner, more "Pythonic" ways to handle existence checks without constantly relying on error handling.</p>
+
+<p>The reason we often reach for <code>try-except</code> is that it’s the standard way to follow the "Easier to Ask for Forgiveness than Permission" (EAFP) principle in Python. While that’s usually great advice, checking for a file's existence is one of the few places where "Look Before You Leap" (LBYL) actually makes sense. When you use <code>try-except</code>, you’re essentially asking the operating system to try to open the file and then panicking if it fails; if you're doing this inside a massive loop, that context switching and error handling overhead adds up fast.</p>
+
+<p>If you want to keep your code clean and skip the exception handling, the modern way to do this is by using the <code>pathlib</code> module. It’s been the standard since Python 3.4, and honestly, it’s a breath of fresh air compared to the old <code>os.path</code> syntax. You just create a <code>Path</code> object and call the <code>exists()</code> method. It’s readable, expressive, and doesn't trigger the heavy machinery of an exception if the file isn't there.</p>
+
+<pre><code class="language-python">
+from pathlib import Path
+
+file_path = Path("my_data_file.txt")
+
+if file_path.exists():
+    print("The file is right where it belongs.")
+else:
+    print("No file found, moving on gracefully.")
+</code></pre>
+
+<p>If you’re stuck on a legacy system or just prefer the classic approach, the <code>os.path</code> module still works perfectly fine. You’ll use <code>os.path.isfile()</code> to verify the file specifically, which is often safer than <code>exists()</code> because it ensures you’re dealing with an actual file and not a directory that happens to share the same name.</p>
+
+<pre><code class="language-python">
+import os
+
+if os.path.isfile("my_data_file.txt"):
+    print("Confirmed: this is a file and it exists.")
+</code></pre>
+
+<p>To prevent these kinds of headaches in the future, my best tip is to always watch out for "race conditions." Even if you check that a file exists, another process could delete it a millisecond later before you actually open it. So, while these methods are great for simple scripts and flow control, if you’re building something mission-critical, you should still keep a light <code>try-except</code> block around the actual <code>open()</code> call just to be safe.</p>
+
+<p>Hope this helps you clean up your codebase and save you some of the frustration I dealt with back in the day. Happy coding!</p></div>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="content-zh" style="display:none">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-python">Python</span>
+          <span class="card-date">2026-10-30</span>
+        </div>
+        <h1>別再為了檢查檔案存不存在寫滿滿的 try-except 了！</h1>
+        <p class="summary">來源：<a href="https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions" target="_blank" rel="noopener">Stack Overflow ↗</a> · 7352 票</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>記得剛入行那年，我寫了一個自動化處理報表的 Python 腳本，當時為了要確認設定檔在不在，我心想「反正 Python 強調 EAFP（請求原諒比請求許可容易），直接 try-except 就對了」。結果那天為了趕專案進度，我寫了整整五層嵌套的 try-except 結構，程式碼醜到連我自己都看不下去。最崩潰的是，後來因為一個權限錯誤觸發了 except，我竟然傻傻地以為檔案真的不存在，結果花了一個下午在除錯，最後才發現檔案就在那裡，只是我沒權限讀取，那個當下真的恨不得把鍵盤給摔了。</p>
+
+<p>其實會遇到這種「為了檢查檔案」而頭痛的問題，主要是因為我們太執著於 Python 的傳統風格，或者說是對 <code>os</code> 模組的用法還不夠靈活。很多新手（包含當年的我）以為要判斷檔案在不在，一定要用 <code>try-except FileNotFoundError</code> 來包住開啟檔案的動作，但當你的邏輯變得複雜，或者你只是想在讀取前先做個簡單的檢查時，這種寫法不僅冗長，還會讓程式碼的可讀性瞬間掉到谷底，甚至像我當年一樣，因為錯誤捕獲太籠統而造成邏輯判斷上的災難。</p>
+
+<p>後來我學乖了，直接改用 Python 3.4 後內建的 <code>pathlib</code> 模組，這東西簡直是救星。你不需要再去處理那些煩人的例外，只要一行程式碼就能搞定。現在我的習慣是直接這樣寫：</p>
+
+<pre><code class="language-python">
+from pathlib import Path
+
+file_path = Path('config.json')
+
+if file_path.exists():
+    print("檔案找到啦！可以開始工作了。")
+else:
+    print("檔案不存在，跳過處理程序。")
+</code></pre>
+
+<p>這不僅看起來乾淨俐落，而且 <code>pathlib</code> 把路徑處理變成物件導向的形式，比起以前那種 <code>os.path.exists()</code> 的寫法，操作起來直覺太多了。如果你還在用舊版的 <code>os</code> 模組，我也建議你趕快換過來，畢竟誰想在維護程式碼時，還要花腦袋去解讀那堆亂七八糟的錯誤處理機制呢？</p>
+
+<p>至於怎麼預防這種無謂的折騰，我的建議很簡單：不要過度依賴例外處理來做「流程控制」。如果你只是單純想知道檔案在不在，那就用 <code>pathlib</code> 的 <code>exists()</code>；如果你是要確保程式穩定，那就在讀取檔案時再用 <code>try-except</code> 去處理權限不足或檔案損壞等「真正的異常」。把邏輯檢查跟異常處理分開，你的程式碼看起來會清爽很多，改天回頭看時也不會想揍當年的自己。</p>
+
+<p>希望大家都能少踩點坑，寫程式這條路已經夠累了，讓它保持簡潔一點吧！</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© 2026 CodeFixer Pro. Built for developers worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    }
+  </script>
+</body>
+</html>
