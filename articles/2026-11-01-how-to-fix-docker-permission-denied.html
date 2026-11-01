@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Fix the "Docker: Permission Denied" Error on Ubuntu | CodeFixer Pro</title>
+  <meta name="description" content="I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">⚡</span><span>CodeFixer <em>Pro</em></span></a>
+      <nav><a href="../index.html#articles">Articles</a><a href="../index.html#topics">Topics</a></nav>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <a href="../index.html" class="back-link">← Back to Home</a>
+
+    <!-- 語言切換按鈕 -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" id="btn-zh" onclick="switchLang('zh')">🇹🇼 繁體中文</button>
+    </div>
+
+    <!-- 英文版 -->
+    <div id="content-en">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-docker">Docker</span>
+          <span class="card-date">2026-11-01</span>
+        </div>
+        <h1>How to Fix the "Docker: Permission Denied" Error on Ubuntu</h1>
+        <p class="summary">Source: <a href="https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied" target="_blank" rel="noopener">Stack Overflow ↗</a> · 1420 votes</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>I still remember the first time I set up Docker on a fresh Ubuntu install, feeling like a total pro until I tried to run my first container without <code>sudo</code>. I spent a solid hour convinced I had botched the entire installation, fruitlessly reinstalling packages and tweaking my shell config, only to realize I was just fighting a simple group permission issue. It’s one of those classic "welcome to Linux" moments that makes you want to throw your keyboard out the window, but once you understand the underlying mechanism, it’s a total breeze to fix.</p>
+
+<p>The reason you’re hitting this wall is that the Docker daemon binds to a Unix socket rather than a TCP port by default, and that socket is owned by the <code>root</code> user. Since your standard user account isn't part of the <code>docker</code> group, you don't have the necessary read/write permissions to talk to the daemon unless you elevate your privileges with <code>sudo</code>. It’s a built-in security feature, but it gets annoying real fast when you’re trying to iterate quickly on a local dev environment.</p>
+
+<p>To fix this for good, you need to add your current user to the <code>docker</code> group. First, I always check if the group exists by running <code>grep docker /etc/group</code>, but it’s almost certainly there if you’ve installed the engine correctly. Once you're sure, use the <code>usermod</code> command to append your user to that group. You'll want to run the following command in your terminal:</p>
+
+<pre><code class="language-bash">
+sudo usermod -aG docker $USER
+</code></pre>
+
+<p>After you run that, the changes won't take effect immediately in your current session. You have two options: either log out and log back in, or force your shell to recognize the new group membership by running <code>newgrp docker</code>. I usually just run <code>newgrp docker</code> because I’m too lazy to close all my terminal tabs. You can verify it worked by running <code>docker run hello-world</code> without the <code>sudo</code> prefix. If it prints the welcome message, you’re golden.</p>
+
+<p>Going forward, the best way to prevent these permission headaches is to always make sure you're properly configured during the initial setup phase. Whenever I spin up a new dev machine, I add the group assignment to my post-install script so I never have to deal with it again. Just keep in mind that giving a user access to the Docker group is essentially giving them root-level access to your system, so only do this on your personal machine or trusted dev environments.</p>
+
+<p>Hope this saves you some of the frustration I went through! Happy coding and enjoy your containerized workflow.</p></div>
+    </div>
+
+    <!-- 中文版 -->
+    <div id="content-zh" style="display:none">
+      <header class="article-header">
+        <div class="card-meta">
+          <span class="card-tag tag-docker">Docker</span>
+          <span class="card-date">2026-11-01</span>
+        </div>
+        <h1>為什麼每次跑 Docker 都要加 sudo？真的會打字打到心累！</h1>
+        <p class="summary">來源：<a href="https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied" target="_blank" rel="noopener">Stack Overflow ↗</a> · 1420 票</p>
+      </header>
+      <hr class="article-divider" />
+      <div class="article-body"><p>記得剛開始碰 Docker 的時候，我滿心期待地想在 Ubuntu 上跑起第一個容器，結果指令剛敲下去，終端機就冷冰冰地回我一句「Permission denied」。當時我心想：「明明是我自己安裝的軟體，為什麼還這麼難搞？」最痛苦的是，每次為了測試一個小功能，都得在指令前加上 <code>sudo</code>，那種打字打到一半還要倒退補上 sudo 的無力感，真的會讓人懷疑人生，甚至好幾次差點直接把開發環境砍掉重練。</p>
+
+<p>其實這個問題的根源很單純，就是 Docker 的守護進程（daemon）預設是用 root 權限在跑的，而那個用來溝通的 Unix socket 檔案 <code>/var/run/docker.sock</code>，預設也只有 root 使用者才有讀寫權限。所以當你用一般使用者的身份去執行指令時，系統就會因為權限不足而把你擋在門外。說穿了，這就是 Linux 對於權限控管的堅持，只是在開發過程中，這種堅持真的讓我們這些開發者挺頭痛的。</p>
+
+<p>要解決這個問題，其實不用每次都對著螢幕生氣。我們只要把當前的使用者加進 <code>docker</code> 這個群組，就能賦予它操作 Docker 的權限了。首先，你需要建立一個群組（雖然通常安裝完就有了），接著把你的使用者帳號丟進去：</p>
+
+<pre><code class="language-bash">
+# 建立 docker 群組（如果還沒建立的話）
+sudo groupadd docker
+
+# 把目前的使用者加進去
+sudo usermod -aG docker $USER
+</code></pre>
+
+<p>搞定這兩行後，你還不能馬上爽用，因為系統需要重新載入群組權限。最快的方法就是直接登出再登入，或者更暴力一點直接重開機。如果不想重開機，也可以用 <code>newgrp docker</code> 指令讓當前的終端機階段立即生效。之後你再試試 <code>docker run hello-world</code>，保證能順利跑起來，再也不用多打那五個字母了。</p>
+
+<p>至於要怎麼預防下次再被這種小事卡住？我覺得最好的習慣就是每次安裝完 Docker 後，直接把這幾行指令加入到你的「開發環境初始化腳本」裡。畢竟我們是工程師，解決這種權限問題一次就夠了，把時間留下來除那些真正棘手的邏輯 bug 才是正經事。</p>
+
+<p>現在你的 Docker 應該已經乖乖聽話了吧，快去享受不用輸入密碼的開發體驗吧！</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="logo">⚡ CodeFixer Pro</span>
+      <div style="display: flex; gap: 20px; font-size: 0.9rem;">
+        <a href="../about.html" style="color: var(--text-muted); text-decoration: none;">About</a>
+        <a href="../privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a>
+      </div>
+      <p style="margin-top: 15px;">© 2026 CodeFixer Pro. Built for developers worldwide.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    }
+  </script>
+</body>
+</html>
