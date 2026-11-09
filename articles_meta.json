@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-11-09-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-11-09",
+    "en_title": "How to Use Local Docker Images with Minikube Without Pulling Your Hair Out",
+    "zh_title": "別再把 Docker Image 推到 Docker Hub 了！Minikube 本地開發的正確姿勢",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "690",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-11-09-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-11-09",
+    "en_title": "Solving the \"Hydration Failed\" Error in Next.js and React 18",
+    "zh_title": "React 18 Hydration Error：那個讓我熬夜到凌晨兩點的「伺服器與客戶端不同調」惡夢",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-11-09-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-11-09",
+    "en_title": "How to Fix the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "Node.js 升級後 React 專案直接噴錯？別慌，這只是 OpenSSL 的小脾氣",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2572",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
+    "slug": "2026-11-09-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-11-09",
+    "en_title": "How to Check if a File Exists in Python Without Using Try-Except",
+    "zh_title": "別再用 try-except 檢查檔案了！Python 檢查檔案存在的正確姿勢",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7352",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-11-09-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-11-09",
+    "en_title": "How to Undo Your Last Local Git Commit Without Losing Your Work",
+    "zh_title": "該死的 Git commit！還沒推送到遠端，怎麼把剛才那次 commit 救回來？",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27251",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
     "slug": "2026-11-08-how-do-i-undo-the-most-recent-local-commits-in-git",
     "date": "2026-11-08",
     "en_title": "How to Undo Your Last Local Git Commit Without Losing Your Work",
