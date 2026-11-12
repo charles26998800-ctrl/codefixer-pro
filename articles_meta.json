@@ -1,5 +1,49 @@
 [
   {
+    "slug": "2026-11-12-how-to-fix-docker-permission-denied",
+    "date": "2026-11-12",
+    "en_title": "How to Fix Docker \"Permission Denied\" Errors on Ubuntu",
+    "zh_title": "為什麼 Docker 老是叫我加 sudo？解決 Permission denied 的終極指南",
+    "description": "I installed Docker on my Ubuntu machine. When I run sudo docker run hello-world it works. But if I write the command without sudo docker run hello-world it displays the following: docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post h",
+    "tag_label": "Docker",
+    "tag_class": "tag-docker",
+    "votes": "1420",
+    "source": "https://stackoverflow.com/questions/48957195/how-to-fix-docker-permission-denied"
+  },
+  {
+    "slug": "2026-11-12-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-11-12",
+    "en_title": "How to Check If a File Exists in Python Without Using Try-Except",
+    "zh_title": "別再用 try-except 檢查檔案了！這幾招讓你寫出乾淨的 Python 程式碼",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7352",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-11-12-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-11-12",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Work",
+    "zh_title": "手滑 commit 了機密檔案？Git 復原大法救救你的心臟",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27251",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-11-12-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-11-12",
+    "en_title": "How to Use Local Docker Images with Minikube Without Pulling Your Hair Out",
+    "zh_title": "搞定 Minikube 的本地映像檔：別再把時間浪費在 Docker Hub 上了！",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "690",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
     "slug": "2026-11-11-react-18-hydration-failed-because-the-initial-ui-d",
     "date": "2026-11-11",
     "en_title": "Solving the \"Hydration failed\" Error in Next.js and React 18",
