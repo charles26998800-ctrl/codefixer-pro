@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-11-19-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-11-19",
+    "en_title": "How to Check If a File Exists in Python Without Using Try-Except",
+    "zh_title": "別再濫用 try-except 了！優雅檢查 Python 檔案是否存在的小技巧",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7352",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-11-19-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-11-19",
+    "en_title": "How to Undo Your Last Local Git Commit Without Losing Your Work",
+    "zh_title": "誤按 commit 還沒推？別慌，這招讓你原地後悔",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27250",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-11-19-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-11-19",
+    "en_title": "Troubleshooting RuntimeError: Input type and weight type should be the same in PyTorch",
+    "zh_title": "別再讓你的模型鬧脾氣：解決 PyTorch 的 Tensor 與 Weight 裝置不匹配錯誤",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-11-19-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-11-19",
+    "en_title": "How to Use Local Docker Images with Minikube Without Pushing to a Registry",
+    "zh_title": "為什麼 Minikube 總是找不到我的 Local Docker Image？一個讓工程師崩潰的日常",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "690",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-11-19-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-11-19",
+    "en_title": "Troubleshooting the \"Hydration failed\" Error in Next.js and React 18",
+    "zh_title": "Next.js 遇到 Hydration Failed？別慌，這其實是 React 在跟你玩捉迷藏",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
     "slug": "2026-11-18-how-do-i-check-whether-a-file-exists-without-excep",
     "date": "2026-11-18",
     "en_title": "How to Check If a File Exists in Python Without Using Try-Except",
