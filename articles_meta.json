@@ -1,5 +1,60 @@
 [
   {
+    "slug": "2026-11-22-runtimeerror-input-type-torchfloattensor-and-weigh",
+    "date": "2026-11-22",
+    "en_title": "How to Fix \"RuntimeError: Input type and weight type should be the same\" in PyTorch",
+    "zh_title": "救命！PyTorch 的 Tensor 裝置不匹配：FloatTensor vs cuda.FloatTensor",
+    "description": "This: device = torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) model.to(device) for data in dataloader: inputs, labels = data outputs = model(inputs) Gives the error: RuntimeError: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the ",
+    "tag_label": "AI / PyTorch",
+    "tag_class": "tag-ai",
+    "votes": "202",
+    "source": "https://stackoverflow.com/questions/59013109/runtimeerror-input-type-torch-floattensor-and-weight-type-torch-cuda-floatte"
+  },
+  {
+    "slug": "2026-11-22-how-can-i-use-local-docker-images-with-minikube",
+    "date": "2026-11-22",
+    "en_title": "How to Use Local Docker Images with Minikube Without Pushing to a Registry",
+    "zh_title": "還在把 Docker Image 推上 Docker Hub？教你如何直接在 Minikube 本地開發",
+    "description": "I have several Docker images that I want to use with Minikube . I don't want to first have to upload and then download the same image instead of just using the local image directly. How do I do this? Stuff I tried: 1. I tried running these commands (separately, deleting the instances of Minikube bot",
+    "tag_label": "Kubernetes",
+    "tag_class": "tag-docker",
+    "votes": "690",
+    "source": "https://stackoverflow.com/questions/42564058/how-can-i-use-local-docker-images-with-minikube"
+  },
+  {
+    "slug": "2026-11-22-error-message-quoterror0308010cdigital-envelope-ro",
+    "date": "2026-11-22",
+    "en_title": "How to Fix the \"digital envelope routines::unsupported\" Error in React",
+    "zh_title": "遇到 Node.js 的「digital envelope routines」報錯？別慌，這其實是版本升級的代價",
+    "description": "I created the default IntelliJ IDEA React project and got this: Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:67:19) at Object.createHash (node:crypto:130:10) at module.exports (/Users/user/Programming Documents/WebServer/untitled/node_modules/we",
+    "tag_label": "React",
+    "tag_class": "tag-nextjs",
+    "votes": "2573",
+    "source": "https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported"
+  },
+  {
+    "slug": "2026-11-22-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-11-22",
+    "en_title": "How to Undo Your Most Recent Local Git Commits Without Losing Your Work",
+    "zh_title": "該死，又不小心 commit 了！教你如何優雅地救回被污染的 Git 本地記錄",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27249",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
+    "slug": "2026-11-22-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-11-22",
+    "en_title": "Fixing the \"Hydration failed\" Error in Next.js and React 18",
+    "zh_title": "React 18 Hydration Error：那個讓我熬夜找兇手的「伺服器與客戶端不對盤」惡夢",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
     "slug": "2026-11-21-how-to-fix-docker-permission-denied",
     "date": "2026-11-21",
     "en_title": "How to fix the \"Docker: Permission denied\" error on Ubuntu",
