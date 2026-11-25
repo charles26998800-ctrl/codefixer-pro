@@ -1,5 +1,38 @@
 [
   {
+    "slug": "2026-11-25-how-do-i-check-whether-a-file-exists-without-excep",
+    "date": "2026-11-25",
+    "en_title": "How to Check If a File Exists in Python Without Using Try-Except",
+    "zh_title": "別再瘋狂 try-except 了！檢查檔案是否存在其實可以很優雅",
+    "description": "How do I check whether a file exists or not, without using the try statement?",
+    "tag_label": "Python",
+    "tag_class": "tag-python",
+    "votes": "7352",
+    "source": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions"
+  },
+  {
+    "slug": "2026-11-25-react-18-hydration-failed-because-the-initial-ui-d",
+    "date": "2026-11-25",
+    "en_title": "How to Fix \"Hydration failed\" Errors in Next.js and React 18",
+    "zh_title": "救命！React 18 Hydration Error 讓我差點把鍵盤砸了",
+    "description": "I'm trying to get SSR working in my app, but I get the error: Hydration failed because the initial UI does not match what was rendered on the server. Live demo code is here . Live demo of problem is here (open dev tools console to see the errors): File App.js import React from &quot;react&quot;; cla",
+    "tag_label": "Next.js",
+    "tag_class": "tag-nextjs",
+    "votes": "341",
+    "source": "https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render"
+  },
+  {
+    "slug": "2026-11-25-how-do-i-undo-the-most-recent-local-commits-in-git",
+    "date": "2026-11-25",
+    "en_title": "How to Undo Your Last Local Git Commit Without Losing Your Mind",
+    "zh_title": "手滑把爛 Code 推上去了？別慌，Git 救命指南在這裡",
+    "description": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet. How do I undo those commits from the local repository?",
+    "tag_label": "Git",
+    "tag_class": "tag-python",
+    "votes": "27249",
+    "source": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git"
+  },
+  {
     "slug": "2026-11-24-how-do-i-check-whether-a-file-exists-without-excep",
     "date": "2026-11-24",
     "en_title": "How to Check If a File Exists in Python Without Using Try-Except Blocks",
